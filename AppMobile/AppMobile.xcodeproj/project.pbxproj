@@ -14,6 +14,10 @@
 		B705489529C0767F004AAE6A /* AppMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B705489429C0767F004AAE6A /* AppMobileTests.swift */; };
 		B705489F29C0767F004AAE6A /* AppMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B705489E29C0767F004AAE6A /* AppMobileUITests.swift */; };
 		B70548A129C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */; };
+		B70548B029C07C47004AAE6A /* Models in Resources */ = {isa = PBXBuildFile; fileRef = B70548AF29C07C47004AAE6A /* Models */; };
+		B70548B229C07C8B004AAE6A /* Intent in Resources */ = {isa = PBXBuildFile; fileRef = B70548B129C07C8B004AAE6A /* Intent */; };
+		B70548B429C07CA4004AAE6A /* Views in Resources */ = {isa = PBXBuildFile; fileRef = B70548B329C07CA4004AAE6A /* Views */; };
+		B70548B629C07D21004AAE6A /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = B70548B529C07D20004AAE6A /* ViewModels */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		B705489A29C0767F004AAE6A /* AppMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B705489E29C0767F004AAE6A /* AppMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMobileUITests.swift; sourceTree = "<group>"; };
 		B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B70548AF29C07C47004AAE6A /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
+		B70548B129C07C8B004AAE6A /* Intent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intent; sourceTree = "<group>"; };
+		B70548B329C07CA4004AAE6A /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
+		B70548B529C07D20004AAE6A /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModels; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,10 @@
 		B705488229C0767D004AAE6A /* AppMobile */ = {
 			isa = PBXGroup;
 			children = (
+				B70548B529C07D20004AAE6A /* ViewModels */,
+				B70548B329C07CA4004AAE6A /* Views */,
+				B70548B129C07C8B004AAE6A /* Intent */,
+				B70548AF29C07C47004AAE6A /* Models */,
 				B705488329C0767D004AAE6A /* AppMobileApp.swift */,
 				B705488529C0767D004AAE6A /* ContentView.swift */,
 				B705488729C0767F004AAE6A /* Assets.xcassets */,
@@ -231,8 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70548B229C07C8B004AAE6A /* Intent in Resources */,
 				B705488B29C0767F004AAE6A /* Preview Assets.xcassets in Resources */,
 				B705488829C0767F004AAE6A /* Assets.xcassets in Resources */,
+				B70548B429C07CA4004AAE6A /* Views in Resources */,
+				B70548B029C07C47004AAE6A /* Models in Resources */,
+				B70548B629C07D21004AAE6A /* ViewModels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
