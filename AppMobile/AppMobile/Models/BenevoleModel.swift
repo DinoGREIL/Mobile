@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Cr
+
 class BenevoleModel:ObservableObject{
     var _idbenevole : String
     var BenevoleNom:String
