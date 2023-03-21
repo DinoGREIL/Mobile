@@ -14,9 +14,7 @@ class FestivalViewModel:Equatable{
     var nbjours: Int{
         return model.nbjours
     }
-    var zones:[ZoneModel]{
-        return model.zones
-    }
+    
     
     init(festival: FestivalModel){
         self.model = festival

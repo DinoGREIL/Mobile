@@ -21,9 +21,7 @@ class BenevoleViewModel:Equatable{
     var BenevolePrenom: String{
         return model.BenevolePrenom
     }
-    var Creneaux:[CreneauModel]{
-        return model.Creneaux
-    }
+    
     var BenevoleMail: String{
         return model.BenevoleMail
     }

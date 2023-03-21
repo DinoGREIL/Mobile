@@ -21,9 +21,7 @@ class ZoneViewModel:Equatable{
     var nbbenevole: Int{
         return model.nbbenevole
     }
-    var creneaux:[CreneauModel]{
-        return model.creneaux
-    }
+    
     
     init(zone: ZoneModel){
         self.model = jour

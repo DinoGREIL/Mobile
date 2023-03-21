@@ -12,7 +12,7 @@ class BenevoleModel:ObservableObject{
     var BenevoleNom:String
 var BenevolePrenom:String
 var BenevoleMail:String
-    var Creneaux:[CreneauModel]
+    
     var admin: Bool
     var password:String
 /*
@@ -20,12 +20,12 @@ var BenevoleMail:String
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idbenevole:String,BenevoleNom:String,BenevolePrenom:String,BenevoleMail:String,Creneaux:[CreneauModel],admin:Bool,password:String){
+    init(_idbenevole:String,BenevoleNom:String,BenevolePrenom:String,BenevoleMail:String,admin:Bool,password:String){
         self._idbenevole = _idbenevole
         self.BenevoleNom = BenevoleNom
         self.BenevolePrenom = BenevolePrenom
         self.BenevoleMail = BenevoleMail
-        self.Creneaux=Creneaux
+        
         self.admin=admin
         self.password=password
         
