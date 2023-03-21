@@ -16,8 +16,8 @@
 		B70548A129C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */; };
 		B70548B029C07C47004AAE6A /* Models in Resources */ = {isa = PBXBuildFile; fileRef = B70548AF29C07C47004AAE6A /* Models */; };
 		B70548B229C07C8B004AAE6A /* Intent in Resources */ = {isa = PBXBuildFile; fileRef = B70548B129C07C8B004AAE6A /* Intent */; };
-		B70548B429C07CA4004AAE6A /* Views in Resources */ = {isa = PBXBuildFile; fileRef = B70548B329C07CA4004AAE6A /* Views */; };
 		B70548B629C07D21004AAE6A /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = B70548B529C07D20004AAE6A /* ViewModels */; };
+		B70AC32A29C99D2100D11A6E /* Views in Resources */ = {isa = PBXBuildFile; fileRef = B70AC32929C99D2100D11A6E /* Views */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,8 @@
 		B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B70548AF29C07C47004AAE6A /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		B70548B129C07C8B004AAE6A /* Intent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intent; sourceTree = "<group>"; };
-		B70548B329C07CA4004AAE6A /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
 		B70548B529C07D20004AAE6A /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModels; sourceTree = "<group>"; };
+		B70AC32929C99D2100D11A6E /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,8 @@
 		B705488229C0767D004AAE6A /* AppMobile */ = {
 			isa = PBXGroup;
 			children = (
+				B70AC32929C99D2100D11A6E /* Views */,
 				B70548B529C07D20004AAE6A /* ViewModels */,
-				B70548B329C07CA4004AAE6A /* Views */,
 				B70548B129C07C8B004AAE6A /* Intent */,
 				B70548AF29C07C47004AAE6A /* Models */,
 				B705488329C0767D004AAE6A /* AppMobileApp.swift */,
@@ -246,7 +246,7 @@
 				B70548B229C07C8B004AAE6A /* Intent in Resources */,
 				B705488B29C0767F004AAE6A /* Preview Assets.xcassets in Resources */,
 				B705488829C0767F004AAE6A /* Assets.xcassets in Resources */,
-				B70548B429C07CA4004AAE6A /* Views in Resources */,
+				B70AC32A29C99D2100D11A6E /* Views in Resources */,
 				B70548B029C07C47004AAE6A /* Models in Resources */,
 				B70548B629C07D21004AAE6A /* ViewModels in Resources */,
 			);
