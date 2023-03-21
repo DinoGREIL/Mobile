@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class CreneauViewModel:Equatable{
+class CreneauViewModel:Identifiable, Equatable{
     static func == (lhs: CreneauViewModel, rhs: CreneauViewModel) -> Bool {
         return lhs._id == rhs._id
     }

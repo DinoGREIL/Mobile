@@ -1,5 +1,5 @@
 import Foundation
-class FestivalViewModel:Equatable{
+class FestivalViewModel:Identifiable, Equatable{
     static func == (lhs: FestivalViewModel, rhs: FestivalViewModel) -> Bool {
         return lhs._id == rhs._id
     }

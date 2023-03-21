@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class BenevoleViewModel:Equatable{
+class BenevoleViewModel:Identifiable, Equatable{
     static func == (lhs: BenevoleViewModel, rhs: BenevoleViewModel) -> Bool {
         return lhs._id == rhs._id
     }

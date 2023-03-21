@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class JourViewModel:Equatable{
+class JourViewModel:Identifiable, Equatable{
     static func == (lhs: JourViewModel, rhs: JourViewModel) -> Bool {
         return lhs._id == rhs._id
     }

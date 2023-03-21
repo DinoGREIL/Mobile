@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class TravailViewModel:Equatable{
+class TravailViewModel:Identifiable, Equatable{
     static func == (lhs: TravailViewModel, rhs: TravailViewModel) -> Bool {
         return (lhs.zone == rhs.zone && lhs.creneaux == rhs.creneaux && lhs.benevole == rhs.benevole)
     }

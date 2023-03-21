@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class ZoneViewModel:Equatable{
+class ZoneViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneViewModel, rhs: ZoneViewModel) -> Bool {
         return lhs._id == rhs._id
     }
