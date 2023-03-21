@@ -15,7 +15,9 @@ class FestivalViewModel:Equatable{
         return model.nbjours
     }
     
-    
+    var cloture:Bool{
+        return model.cloture
+    }
     init(festival: FestivalModel){
         self.model = festival
     }

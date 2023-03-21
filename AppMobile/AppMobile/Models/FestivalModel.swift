@@ -10,7 +10,7 @@ class FestivalModel:ObservableObject{
     var _idfestival : String
     var nomfestival:String
     var nbjours:Int
-    
+    var cloture:Bool
     
     
 
@@ -19,10 +19,11 @@ class FestivalModel:ObservableObject{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idfestival:String,nomfestival:String,nbjours:Int){
+    init(_idfestival:String,nomfestival:String,nbjours:Int,cloture:Bool){
         self._idfestival=_idfestival
         self.nomfestival=nomfestival
         self.nbjours = nbjours
+        self.cloture = cloture
         
     }
 }
