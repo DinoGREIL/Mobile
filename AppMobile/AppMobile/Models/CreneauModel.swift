@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class CreneauModel:ObservableObject{
+class CreneauModel:ObservableObject,Identifiable, Codable{
     var _idcreneau : String
     var debut:String
     var fin:String

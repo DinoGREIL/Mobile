@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class ZoneModel:ObservableObject{
+class ZoneModel:ObservableObject,Identifiable, Codable{
     var _idzone : String
     var nomzone:String
     var nbbenevole:Int

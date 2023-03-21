@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BenevoleModel:ObservableObject{
+class BenevoleModel:ObservableObject,Identifiable, Codable{
     var _idbenevole : String
     var BenevoleNom:String
 var BenevolePrenom:String

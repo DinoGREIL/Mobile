@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class TravailModel:ObservableObject{
+class TravailModel:ObservableObject,Identifiable, Codable{
     var benevole : BenevoleModel
     var zone:ZoneModel
     var creneau:CreneauModel

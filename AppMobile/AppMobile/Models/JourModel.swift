@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class JourModel:ObservableObject{
+class JourModel:ObservableObject,Identifiable, Codable{
     var _idjour : String
     var nomjour:String
     var debut:NSTimeInterval

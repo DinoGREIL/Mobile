@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class FestivalModel:ObservableObject{
+class FestivalModel:ObservableObject,Identifiable, Codable{
     var _idfestival : String
     var nomfestival:String
     var nbjours:Int
