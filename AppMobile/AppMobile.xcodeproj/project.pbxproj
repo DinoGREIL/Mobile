@@ -18,17 +18,6 @@
 		B70548B229C07C8B004AAE6A /* Intent in Resources */ = {isa = PBXBuildFile; fileRef = B70548B129C07C8B004AAE6A /* Intent */; };
 		B70548B429C07CA4004AAE6A /* Views in Resources */ = {isa = PBXBuildFile; fileRef = B70548B329C07CA4004AAE6A /* Views */; };
 		B70548B629C07D21004AAE6A /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = B70548B529C07D20004AAE6A /* ViewModels */; };
-		B731C15129C458E500C47F96 /* ArchitectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15029C458E500C47F96 /* ArchitectureView.swift */; };
-		B731C15329C459BD00C47F96 /* FestivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15229C459BD00C47F96 /* FestivalsView.swift */; };
-		B731C15529C459DD00C47F96 /* FestivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15429C459DD00C47F96 /* FestivalView.swift */; };
-		B731C15729C45A0000C47F96 /* ListeJoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15629C45A0000C47F96 /* ListeJoursView.swift */; };
-		B731C15929C45A1100C47F96 /* JourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15829C45A1100C47F96 /* JourView.swift */; };
-		B731C15B29C45A2700C47F96 /* ListeZonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15A29C45A2700C47F96 /* ListeZonesView.swift */; };
-		B731C15D29C45A3C00C47F96 /* ZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15C29C45A3C00C47F96 /* ZoneView.swift */; };
-		B731C15F29C45A5700C47F96 /* ListeBenevolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C15E29C45A5700C47F96 /* ListeBenevolesView.swift */; };
-		B731C16129C45A7600C47F96 /* BenevoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C16029C45A7600C47F96 /* BenevoleView.swift */; };
-		B731C16329C45A9900C47F96 /* ListeCrenauxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C16229C45A9900C47F96 /* ListeCrenauxView.swift */; };
-		B731C16529C45AAD00C47F96 /* CrenauxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731C16429C45AAD00C47F96 /* CrenauxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,17 +52,6 @@
 		B70548B129C07C8B004AAE6A /* Intent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Intent; sourceTree = "<group>"; };
 		B70548B329C07CA4004AAE6A /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
 		B70548B529C07D20004AAE6A /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModels; sourceTree = "<group>"; };
-		B731C15029C458E500C47F96 /* ArchitectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureView.swift; sourceTree = "<group>"; };
-		B731C15229C459BD00C47F96 /* FestivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalsView.swift; sourceTree = "<group>"; };
-		B731C15429C459DD00C47F96 /* FestivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalView.swift; sourceTree = "<group>"; };
-		B731C15629C45A0000C47F96 /* ListeJoursView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeJoursView.swift; sourceTree = "<group>"; };
-		B731C15829C45A1100C47F96 /* JourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourView.swift; sourceTree = "<group>"; };
-		B731C15A29C45A2700C47F96 /* ListeZonesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeZonesView.swift; sourceTree = "<group>"; };
-		B731C15C29C45A3C00C47F96 /* ZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneView.swift; sourceTree = "<group>"; };
-		B731C15E29C45A5700C47F96 /* ListeBenevolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeBenevolesView.swift; sourceTree = "<group>"; };
-		B731C16029C45A7600C47F96 /* BenevoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleView.swift; sourceTree = "<group>"; };
-		B731C16229C45A9900C47F96 /* ListeCrenauxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeCrenauxView.swift; sourceTree = "<group>"; };
-		B731C16429C45AAD00C47F96 /* CrenauxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrenauxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,17 +104,6 @@
 			children = (
 				B70548B529C07D20004AAE6A /* ViewModels */,
 				B70548B329C07CA4004AAE6A /* Views */,
-				B731C16429C45AAD00C47F96 /* CrenauxView.swift */,
-				B731C16229C45A9900C47F96 /* ListeCrenauxView.swift */,
-				B731C16029C45A7600C47F96 /* BenevoleView.swift */,
-				B731C15E29C45A5700C47F96 /* ListeBenevolesView.swift */,
-				B731C15C29C45A3C00C47F96 /* ZoneView.swift */,
-				B731C15A29C45A2700C47F96 /* ListeZonesView.swift */,
-				B731C15829C45A1100C47F96 /* JourView.swift */,
-				B731C15629C45A0000C47F96 /* ListeJoursView.swift */,
-				B731C15429C459DD00C47F96 /* FestivalView.swift */,
-				B731C15229C459BD00C47F96 /* FestivalsView.swift */,
-				B731C15029C458E500C47F96 /* ArchitectureView.swift */,
 				B70548B129C07C8B004AAE6A /* Intent */,
 				B70548AF29C07C47004AAE6A /* Models */,
 				B705488329C0767D004AAE6A /* AppMobileApp.swift */,
@@ -306,19 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B731C15729C45A0000C47F96 /* ListeJoursView.swift in Sources */,
 				B705488629C0767D004AAE6A /* ContentView.swift in Sources */,
-				B731C15B29C45A2700C47F96 /* ListeZonesView.swift in Sources */,
-				B731C16329C45A9900C47F96 /* ListeCrenauxView.swift in Sources */,
 				B705488429C0767D004AAE6A /* AppMobileApp.swift in Sources */,
-				B731C15F29C45A5700C47F96 /* ListeBenevolesView.swift in Sources */,
-				B731C16529C45AAD00C47F96 /* CrenauxView.swift in Sources */,
-				B731C16129C45A7600C47F96 /* BenevoleView.swift in Sources */,
-				B731C15D29C45A3C00C47F96 /* ZoneView.swift in Sources */,
-				B731C15329C459BD00C47F96 /* FestivalsView.swift in Sources */,
-				B731C15529C459DD00C47F96 /* FestivalView.swift in Sources */,
-				B731C15129C458E500C47F96 /* ArchitectureView.swift in Sources */,
-				B731C15929C45A1100C47F96 /* JourView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
