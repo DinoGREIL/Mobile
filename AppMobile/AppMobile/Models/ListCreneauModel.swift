@@ -1,4 +1,4 @@
-
+import Foundation
 class ListCreneauModel : ObservableObject {
     
     private(set) var creneaux = [CreneauModel]()

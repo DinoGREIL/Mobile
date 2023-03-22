@@ -1,4 +1,4 @@
-
+import Foundation
 class ListZoneModel : ObservableObject {
     
     private(set) var zones = [ZoneModel]()

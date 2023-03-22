@@ -1,4 +1,4 @@
-
+import Foundation
 class ListJourModel : ObservableObject {
     
     private(set) var jours = [JourModel]()

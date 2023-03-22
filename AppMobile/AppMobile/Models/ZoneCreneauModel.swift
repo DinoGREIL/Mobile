@@ -1,4 +1,4 @@
-
+import Foundation
 class ZoneCreneauModel:ObservableObject,Identifiable, Codable{
     
     var zone:ZoneModel

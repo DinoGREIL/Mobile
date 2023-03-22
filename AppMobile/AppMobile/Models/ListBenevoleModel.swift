@@ -1,3 +1,4 @@
+import Foundation
 class ListBenevoleModel : ObservableObject {
     
     private(set) var benevoles = [BenevoleModel]()

@@ -1,6 +1,6 @@
 
 
-
+import Foundation
 class ListCreneauViewModel: ObservableObject {
     
     @Published var model : ListCreneauModel

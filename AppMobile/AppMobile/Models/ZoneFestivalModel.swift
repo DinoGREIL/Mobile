@@ -1,3 +1,4 @@
+import Foundation
 class ZoneFestivalModel:ObservableObject,Identifiable, Codable{
     var festival:FestivalModel
     var zone:ZoneModel

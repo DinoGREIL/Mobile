@@ -1,3 +1,4 @@
+import Foundation
 class DisponibleModel:ObservableObject,Identifiable, Codable{
     var benevole : BenevoleModel
     

@@ -1,5 +1,5 @@
 
-
+import Foundation
 class ListBenevolesViewModel: ObservableObject {
     
     @Published var model : ListBenevoleModel
