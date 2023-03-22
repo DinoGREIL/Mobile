@@ -9,8 +9,9 @@ import SwiftUI
 
 let beige_fond = Color(red: 0.9607843137, green: 0.9490196078, blue: 0.8431372549);
 let vert_nav = Color(red: 0.3882352941, green: 0.831372549, blue: 0.4431372549)
-
 struct ContentView: View {
+    @ObservedObject var festivals = FestivalModel(_idfestival: "", nomfestival: "", nbjours: 0, cloture: true)
+
     var body: some View {
         TabView {
             VStack {

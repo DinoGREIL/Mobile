@@ -8,7 +8,7 @@
 import Foundation
 class TravailViewModel:Identifiable, Equatable{
     static func == (lhs: TravailViewModel, rhs: TravailViewModel) -> Bool {
-        return (lhs.zone == rhs.zone && lhs.creneau == rhs.creneau && lhs.benevole == rhs.benevole)
+        return (lhs.zone._idzone == rhs.zone._idzone && lhs.creneau._idcreneau == rhs.creneau._idcreneau && lhs.benevole._idbenevole == rhs.benevole._idbenevole)
     }
     
     private(set) var model : TravailModel
