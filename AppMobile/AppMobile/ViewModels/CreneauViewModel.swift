@@ -4,7 +4,14 @@
 //
 //  Created by etud on 17/03/2023.
 //
-
+enum CreneauState {
+    case ready
+    case changingName(String)
+    case error
+    case loadingCreneaux
+    case loadedCreneaux([CreneauModel])
+    
+}
 import Foundation
 class CreneauViewModel:Identifiable, Equatable{
     static func == (lhs: CreneauViewModel, rhs: CreneauViewModel) -> Bool {

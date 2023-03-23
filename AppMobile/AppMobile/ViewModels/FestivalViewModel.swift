@@ -1,3 +1,12 @@
+enum FestivalState {
+    case ready
+    case changingName(String)
+    case error
+    case loadingFestivals
+    case loadedBFestivals([FestivalModel])
+    
+}
+
 import Foundation
 class FestivalViewModel:Identifiable, Equatable{
     static func == (lhs: FestivalViewModel, rhs: FestivalViewModel) -> Bool {

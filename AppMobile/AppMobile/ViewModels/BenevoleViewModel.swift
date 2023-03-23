@@ -4,9 +4,16 @@
 //
 //  Created by etud on 17/03/2023.
 //
-
+enum BenevoleState {
+    case ready
+    case changingName(String)
+    case error
+    case loadingBenevoles
+    case loadedBenevoles([BenevoleModel])
+    
+}
 import Foundation
-class BenevoleViewModel:Identifiable, Equatable{
+class BenevoleViewModel:Identifiable,Hashable, Equatable{
     static func == (lhs: BenevoleViewModel, rhs: BenevoleViewModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -33,6 +40,23 @@ class BenevoleViewModel:Identifiable, Equatable{
     }
     init(benevole: BenevoleModel){
         self.model = benevole
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    @Published var state : BenevoleState = .ready {
+        didSet {
+            switch state {
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("BenevoleViewModel: ready state")
+                debugPrint("--------------------------------------")
+            default:
+                break
+            }
+        }
     }
     
 }
