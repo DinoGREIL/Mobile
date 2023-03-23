@@ -18,10 +18,10 @@ class JourViewModel:Identifiable, Equatable{
     var nomjour: String{
         return model.nomjour
     }
-    var debut: NSTimeInterval{
+    var debut: TimeInterval{
         return model.debut
     }
-    var fin:NSTimeInterval{
+    var fin:TimeInterval{
         return model.fin
     }
     var festival:FestivalModel{

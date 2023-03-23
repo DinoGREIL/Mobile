@@ -12,7 +12,7 @@ class ZoneFestivalModel:ObservableObject,Identifiable, Codable{
     }*/
     init(zone:ZoneModel,festival:FestivalModel){
         self.zone=zone
-        self.festival=FestivalModel
+        self.festival=festival
         
         
     }

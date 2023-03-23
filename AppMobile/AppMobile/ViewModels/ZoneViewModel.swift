@@ -24,7 +24,7 @@ class ZoneViewModel:Identifiable, Equatable{
     
     
     init(zone: ZoneModel){
-        self.model = jour
+        self.model = zone
     }
     
 }

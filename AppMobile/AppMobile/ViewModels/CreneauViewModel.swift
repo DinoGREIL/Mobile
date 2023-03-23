@@ -16,17 +16,17 @@ class CreneauViewModel:Identifiable, Equatable{
         return model._idcreneau
     }
     var debut: String{
-        return model.nomfestival
+        return model.debut
     }
     var fin: String{
-        return model.nbjours
+        return model.fin
     }
     var jour:JourModel{
         return model.jour
     }
     
     init(creneau: CreneauModel){
-        self.model = festival
+        self.model = creneau
     }
     
 }
