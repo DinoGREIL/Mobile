@@ -4,14 +4,7 @@
 //
 //  Created by etud on 17/03/2023.
 //
-enum BenevoleState {
-    case ready
-    case changingName(String)
-    case error
-    case loadingBenevoles
-    case loadedBenevoles([BenevoleModel])
-    
-}
+
 import Foundation
 class BenevoleViewModel:Identifiable,Hashable, Equatable{
     static func == (lhs: BenevoleViewModel, rhs: BenevoleViewModel) -> Bool {

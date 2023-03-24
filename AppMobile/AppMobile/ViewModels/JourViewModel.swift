@@ -4,14 +4,7 @@
 //
 //  Created by etud on 17/03/2023.
 //
-enum JourState {
-    case ready
-    case changingName(String)
-    case error
-    case loadingJours
-    case loadedJours([JourModel])
-    
-}
+
 import Foundation
 class JourViewModel:Identifiable, Equatable{
     static func == (lhs: JourViewModel, rhs: JourViewModel) -> Bool {

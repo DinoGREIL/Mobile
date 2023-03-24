@@ -4,14 +4,7 @@
 //
 //  Created by etud on 17/03/2023.
 //
-enum ZoneState {
-    case ready
-    case changingName(String)
-    case error
-    case loadingZones
-    case loadedZones([ZoneModel])
-    
-}
+
 import Foundation
 class ZoneViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneViewModel, rhs: ZoneViewModel) -> Bool {

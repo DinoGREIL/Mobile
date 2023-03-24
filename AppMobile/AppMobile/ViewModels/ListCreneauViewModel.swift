@@ -3,10 +3,10 @@
 import Foundation
 class ListCreneauViewModel: ObservableObject {
     
-    @Published var model : ListCreneauModel
+    @Published var creneaux : [CreneauViewModel]
     
-    init(listcreneau: ListCreneauModel){
-        self.model = listcreneau
+    init(listcreneau: [CreneauViewModel]){
+        self.creneaux = listcreneau
     }
         
     
