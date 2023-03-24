@@ -11,6 +11,6 @@ enum FestivalState {
     case changingName(String)
     case error
     case loadingFestivals
-    case loadedBFestivals([FestivalModel])
+    case loadedFestivals([FestivalModel])
     
 }
