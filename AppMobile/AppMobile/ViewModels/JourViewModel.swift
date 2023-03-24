@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class JourViewModel:Identifiable, Equatable{
+class JourViewModel:Identifiable, Hashable,Equatable{
     static func == (lhs: JourViewModel, rhs: JourViewModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -30,7 +30,23 @@ class JourViewModel:Identifiable, Equatable{
     init(jour: JourModel){
         self.model = jour
     }
-    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    @Published var state : JourState = .ready {
+        didSet {
+            switch state {
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("JourViewModel: ready state")
+                debugPrint("--------------------------------------")
+            default:
+                break
+            }
+        }
+    }
 }
 
 

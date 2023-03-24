@@ -20,4 +20,5 @@ class DisponibleViewModel:Identifiable, Equatable{
         self.model = disponible
     }
     
+    
 }

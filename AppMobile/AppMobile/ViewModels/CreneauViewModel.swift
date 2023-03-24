@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class CreneauViewModel:Identifiable, Equatable{
+class CreneauViewModel:Identifiable,Hashable, Equatable{
     static func == (lhs: CreneauViewModel, rhs: CreneauViewModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -27,6 +27,23 @@ class CreneauViewModel:Identifiable, Equatable{
     
     init(creneau: CreneauModel){
         self.model = creneau
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    @Published var state : CreneauState = .ready {
+        didSet {
+            switch state {
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("CreneauViewModel: ready state")
+                debugPrint("--------------------------------------")
+            default:
+                break
+            }
+        }
     }
     
 }

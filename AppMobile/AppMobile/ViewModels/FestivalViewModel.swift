@@ -1,7 +1,7 @@
 
 
 import Foundation
-class FestivalViewModel:Identifiable, Equatable{
+class FestivalViewModel:Identifiable, Hashable,Equatable{
     static func == (lhs: FestivalViewModel, rhs: FestivalViewModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -23,6 +23,22 @@ class FestivalViewModel:Identifiable, Equatable{
     init(festival: FestivalModel){
         self.model = festival
     }
-    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    @Published var state : FestivalState = .ready {
+        didSet {
+            switch state {
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("FestivalViewModel: ready state")
+                debugPrint("--------------------------------------")
+            default:
+                break
+            }
+        }
+    }
 }
 
