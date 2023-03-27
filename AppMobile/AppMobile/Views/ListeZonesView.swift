@@ -2,6 +2,9 @@
 import SwiftUI
 
 struct ListZonesView: View {
+    @ObservedObject var zones = ListZoneViewModel(listzone:
+            [ZoneViewModel(zone : ZoneModel(_idzone: "", nomzone: "Hall", nbbenevole: 3)), ZoneViewModel(zone: ZoneModel(_idzone: "", nomzone: "Salle A", nbbenevole: 4)),ZoneViewModel(zone : ZoneModel(_idzone: "", nomzone: "Salle B", nbbenevole: 4))])
+    
     var body: some View {
         ZStack {
             beige_fond
@@ -13,7 +16,21 @@ struct ListZonesView: View {
                 Text("Gestion des Zones")
                 Divider()
                 Spacer()
+                VStack{
+                    List{
+                    
+                    }
+                }
+                
+                Button("Ajouter Zone", action:{
+                    
+                })
+                .padding()
+                .background(vert_nav)
+                .cornerRadius(20)
+                Spacer()
             }
+            
         }
     }
 }

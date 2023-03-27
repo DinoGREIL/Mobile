@@ -13,6 +13,10 @@ struct ListeBenevolesView: View {
                 Text("Gestion des Bénévoles")
                 Divider()
                 Spacer()
+                VStack{
+                    Text("Nombre de bénévoles : ")
+                }
+                Spacer()
             }
             
         }
