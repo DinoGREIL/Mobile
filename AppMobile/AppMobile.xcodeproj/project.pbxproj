@@ -14,6 +14,13 @@
 		B705489529C0767F004AAE6A /* AppMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B705489429C0767F004AAE6A /* AppMobileTests.swift */; };
 		B705489F29C0767F004AAE6A /* AppMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B705489E29C0767F004AAE6A /* AppMobileUITests.swift */; };
 		B70548A129C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */; };
+		B779E72729CC630700231653 /* ZoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779E72629CC630700231653 /* ZoneModel.swift */; };
+		B779E72929CC746600231653 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779E72829CC746600231653 /* JSONHelper.swift */; };
+		B7F5C4BD29CD9D14005BE764 /* BenevoleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F5C4BC29CD9D14005BE764 /* BenevoleState.swift */; };
+		B7F5C4BF29CD9D52005BE764 /* CreneauState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F5C4BE29CD9D52005BE764 /* CreneauState.swift */; };
+		B7F5C4C129CD9D62005BE764 /* JourState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F5C4C029CD9D62005BE764 /* JourState.swift */; };
+		B7F5C4C329CD9D71005BE764 /* ZoneState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F5C4C229CD9D71005BE764 /* ZoneState.swift */; };
+		B7F5C4C529CD9D88005BE764 /* FestivalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F5C4C429CD9D88005BE764 /* FestivalState.swift */; };
 		B7FD6E1A29CB0CB300AAAA0C /* FestivalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD6E1929CB0CB300AAAA0C /* FestivalModel.swift */; };
 		B7FD6E1C29CB0CDB00AAAA0C /* BenevoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD6E1B29CB0CDB00AAAA0C /* BenevoleModel.swift */; };
 		B7FD6E1E29CB0CE300AAAA0C /* CreneauModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD6E1D29CB0CE300AAAA0C /* CreneauModel.swift */; };
@@ -91,6 +98,13 @@
 		B705489A29C0767F004AAE6A /* AppMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B705489E29C0767F004AAE6A /* AppMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMobileUITests.swift; sourceTree = "<group>"; };
 		B70548A029C0767F004AAE6A /* AppMobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B779E72629CC630700231653 /* ZoneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneModel.swift; sourceTree = "<group>"; };
+		B779E72829CC746600231653 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		B7F5C4BC29CD9D14005BE764 /* BenevoleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleState.swift; sourceTree = "<group>"; };
+		B7F5C4BE29CD9D52005BE764 /* CreneauState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauState.swift; sourceTree = "<group>"; };
+		B7F5C4C029CD9D62005BE764 /* JourState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourState.swift; sourceTree = "<group>"; };
+		B7F5C4C229CD9D71005BE764 /* ZoneState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneState.swift; sourceTree = "<group>"; };
+		B7F5C4C429CD9D88005BE764 /* FestivalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalState.swift; sourceTree = "<group>"; };
 		B7FD6E1929CB0CB300AAAA0C /* FestivalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalModel.swift; sourceTree = "<group>"; };
 		B7FD6E1B29CB0CDB00AAAA0C /* BenevoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleModel.swift; sourceTree = "<group>"; };
 		B7FD6E1D29CB0CE300AAAA0C /* CreneauModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauModel.swift; sourceTree = "<group>"; };
@@ -188,6 +202,7 @@
 		B705488229C0767D004AAE6A /* AppMobile */ = {
 			isa = PBXGroup;
 			children = (
+				B7F5C4BB29CD9CFD005BE764 /* States */,
 				B7FD6E5F29CB0D6C00AAAA0C /* ViewModels */,
 				B7FD6E4829CB0D4800AAAA0C /* Views */,
 				B7FD6E3529CB0D0700AAAA0C /* Intent */,
@@ -196,6 +211,7 @@
 				B705488529C0767D004AAE6A /* ContentView.swift */,
 				B705488729C0767F004AAE6A /* Assets.xcassets */,
 				B705488929C0767F004AAE6A /* Preview Content */,
+				B779E72829CC746600231653 /* JSONHelper.swift */,
 			);
 			path = AppMobile;
 			sourceTree = "<group>";
@@ -225,6 +241,18 @@
 			path = AppMobileUITests;
 			sourceTree = "<group>";
 		};
+		B7F5C4BB29CD9CFD005BE764 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				B7F5C4BC29CD9D14005BE764 /* BenevoleState.swift */,
+				B7F5C4BE29CD9D52005BE764 /* CreneauState.swift */,
+				B7F5C4C029CD9D62005BE764 /* JourState.swift */,
+				B7F5C4C229CD9D71005BE764 /* ZoneState.swift */,
+				B7F5C4C429CD9D88005BE764 /* FestivalState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		B7FD6E1829CB0C9300AAAA0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +265,7 @@
 				B7FD6E2629CB0CED00AAAA0C /* TravailModel.swift */,
 				B7FD6E2929CB0CED00AAAA0C /* ZoneCreneauModel.swift */,
 				B7FD6E2129CB0CEC00AAAA0C /* ZoneFestivalModel.swift */,
+				B779E72629CC630700231653 /* ZoneModel.swift */,
 				B7FD6E1F29CB0CE600AAAA0C /* DisponibleModel.swift */,
 				B7FD6E1D29CB0CE300AAAA0C /* CreneauModel.swift */,
 				B7FD6E1B29CB0CDB00AAAA0C /* BenevoleModel.swift */,
@@ -459,21 +488,28 @@
 				B7FD6E7129CB0D7F00AAAA0C /* ZoneFestivalViewModel.swift in Sources */,
 				B7FD6E4029CB0D1F00AAAA0C /* FestivalIntent.swift in Sources */,
 				B7FD6E7529CB0D7F00AAAA0C /* ListCreneauViewModel.swift in Sources */,
+				B7F5C4C529CD9D88005BE764 /* FestivalState.swift in Sources */,
 				B7FD6E5E29CB0D5600AAAA0C /* CreneauxView.swift in Sources */,
 				B7FD6E1A29CB0CB300AAAA0C /* FestivalModel.swift in Sources */,
 				B7FD6E5429CB0D5600AAAA0C /* FestivalView.swift in Sources */,
 				B7FD6E7A29CB0D7F00AAAA0C /* ZoneCreneauViewModel.swift in Sources */,
+				B779E72929CC746600231653 /* JSONHelper.swift in Sources */,
 				B7FD6E3229CB0CEE00AAAA0C /* ListBenevoleModel.swift in Sources */,
 				B7FD6E7B29CB0D7F00AAAA0C /* CreneauViewModel.swift in Sources */,
 				B7FD6E4229CB0D1F00AAAA0C /* BenevoleIntent.swift in Sources */,
 				B7FD6E7829CB0D7F00AAAA0C /* ListBenevolesViewModel.swift in Sources */,
 				B7FD6E1E29CB0CE300AAAA0C /* CreneauModel.swift in Sources */,
+				B7F5C4BD29CD9D14005BE764 /* BenevoleState.swift in Sources */,
 				B7FD6E3329CB0CEE00AAAA0C /* ZoneFestivalModel.swift in Sources */,
+				B7F5C4C129CD9D62005BE764 /* JourState.swift in Sources */,
 				B7FD6E6E29CB0D7F00AAAA0C /* ListZoneViewModel.swift in Sources */,
 				B7FD6E7429CB0D7F00AAAA0C /* ListJourViewModel.swift in Sources */,
+				B779E72729CC630700231653 /* ZoneModel.swift in Sources */,
 				B7FD6E7929CB0D7F00AAAA0C /* ZoneViewModel.swift in Sources */,
 				B7FD6E7329CB0D7F00AAAA0C /* DisponibleViewModel.swift in Sources */,
 				B7FD6E2F29CB0CEE00AAAA0C /* ListCreneauModel.swift in Sources */,
+				B7F5C4BF29CD9D52005BE764 /* CreneauState.swift in Sources */,
+				B7F5C4C329CD9D71005BE764 /* ZoneState.swift in Sources */,
 				B7FD6E1C29CB0CDB00AAAA0C /* BenevoleModel.swift in Sources */,
 				B7FD6E5929CB0D5600AAAA0C /* ListeCreneauxView.swift in Sources */,
 				B7FD6E5D29CB0D5600AAAA0C /* ZoneView.swift in Sources */,
