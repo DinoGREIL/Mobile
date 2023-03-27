@@ -20,6 +20,11 @@ class FestivalViewModel:Identifiable, Hashable,Equatable{
     var cloture:Bool{
         return model.cloture
     }
+    
+    var annee: String{
+        return model.annee
+    }
+    
     init(festival: FestivalModel){
         self.model = festival
     }

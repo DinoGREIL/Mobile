@@ -3,7 +3,19 @@ import SwiftUI
 
 struct ListeBenevolesView: View {
     var body: some View {
-        Text("")
+        ZStack {
+            beige_fond
+                .ignoresSafeArea()
+            
+            // Your other content here
+            // Other layers will respect the safe area edges
+            VStack{
+                Text("Gestion des Bénévoles")
+                Divider()
+                Spacer()
+            }
+            
+        }
     }
 }
 
