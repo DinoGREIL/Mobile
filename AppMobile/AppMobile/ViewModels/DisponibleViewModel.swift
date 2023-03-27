@@ -4,7 +4,7 @@
 import Foundation
 class DisponibleViewModel:Identifiable, Equatable{
     static func == (lhs: DisponibleViewModel, rhs: DisponibleViewModel) -> Bool {
-        return (lhs.benevole._idbenevole == rhs.benevole._idbenevole && lhs.creneau._idcreneau == rhs.creneau._idcreneau)
+        return (lhs.benevole.idbenevole == rhs.benevole.idbenevole && lhs.creneau._idcreneau == rhs.creneau._idcreneau)
     }
     
     private(set) var model : DisponibleModel

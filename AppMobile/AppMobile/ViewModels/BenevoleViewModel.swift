@@ -12,27 +12,21 @@ class BenevoleViewModel:Identifiable,Hashable, Equatable{
     }
     
     private(set) var model : BenevoleModel
-    var _id : String{
-        return model._idbenevole
-    }
-    var BenevoleNom: String{
-        return model.BenevoleNom
-    }
-    var BenevolePrenom: String{
-        return model.BenevolePrenom
-    }
+    @Published var _id : Int
+    @Published var BenevoleNom: String
+    @Published var BenevolePrenom: String
     
-    var BenevoleMail: String{
-        return model.BenevoleMail
-    }
-    var admin: Bool{
-        return model.admin
-    }
-    var password: String{
-        return model.password
-    }
+    @Published var BenevoleMail: String
+    @Published var admin: Bool
+    @Published var password: String
     init(benevole: BenevoleModel){
         self.model = benevole
+        self._id=benevole.idbenevole
+        self.BenevoleNom=benevole.nombenevole
+        self.BenevolePrenom=benevole.prenom
+        self.BenevoleMail=benevole.email
+        self.admin=benevole.admin
+        self.password=benevole.password
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)

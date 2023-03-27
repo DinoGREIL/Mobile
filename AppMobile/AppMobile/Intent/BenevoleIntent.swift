@@ -17,7 +17,7 @@ struct BenevoleIntent {
     func getBenevoles() async {
         self.model.state = .loadingBenevoles
         
-        guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs") else {
+        guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles") else {
             debugPrint("bad url getUser")
             return
         }

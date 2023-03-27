@@ -7,6 +7,9 @@ class ListBenevolesViewModel: ObservableObject {
     init(benevoles: [BenevoleViewModel]){
         self.benevoles = benevoles
     }
+    func count() -> Int{
+        return benevoles.count
+    }
     func change(name: String) {
         self.objectWillChange.send()
     }
