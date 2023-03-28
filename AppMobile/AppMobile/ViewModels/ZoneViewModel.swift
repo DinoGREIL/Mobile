@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class ZoneViewModel:Identifiable, Equatable{
+class ZoneViewModel:Identifiable,Hashable, Equatable{
     static func == (lhs: ZoneViewModel, rhs: ZoneViewModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -16,12 +16,28 @@ class ZoneViewModel:Identifiable, Equatable{
     @Published var nomzone: String
     @Published var nbbenevole: Int
     
-    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
     init(zone: ZoneModel){
         self.model = zone
         self._id=zone.idzone
         self.nomzone=zone.nomzone
         self.nbbenevole=zone.nbbenevole
+    }
+    @Published var state : ZoneState = .ready {
+        didSet {
+            switch state {
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("ZoneViewModel: ready state")
+                debugPrint("--------------------------------------")
+            default:
+                break
+            }
+        }
     }
     
 }

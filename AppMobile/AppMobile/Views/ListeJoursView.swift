@@ -23,22 +23,22 @@ struct ListeJoursView: View {
                 List{
                     ForEach(jours.jours, id: \.self) { jour in
                         NavigationLink(value: jour){
-                            Text(creneau.debut)
-                            Text(creneau.fin)
+                            Text(jour.nomjour)
+                            Text(jour.debut)
                         }
                     }
                 }
             }
         }.task {
             debugPrint("chargement data ?")
-                await creneauIntent.getCreneaux()
+                await jourIntent.getJours()
         }
     }
 }
-
-struct ListeCreneauxView_Previews: PreviewProvider {
+/*
+struct ListeJoursView_Previews: PreviewProvider {
     static var previews: some View {
         ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []))
     }
 }
-
+*/

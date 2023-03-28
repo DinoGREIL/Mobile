@@ -2,9 +2,12 @@
 import SwiftUI
 
 struct ListZonesView: View {
-    @ObservedObject var zones = ListZoneViewModel(listzone:
-            [ZoneViewModel(zone : ZoneModel(_idzone: "", nomzone: "Hall", nbbenevole: 3)), ZoneViewModel(zone: ZoneModel(_idzone: "", nomzone: "Salle A", nbbenevole: 4)),ZoneViewModel(zone : ZoneModel(_idzone: "", nomzone: "Salle B", nbbenevole: 4))])
-    
+    @ObservedObject var zones : ListZoneViewModel
+    var zoneIntent : ZoneIntent
+    init(viewModel : ListZoneViewModel){
+        self.zones = viewModel
+        self.zoneIntent = ZoneIntent(model: viewModel)
+    }
     var body: some View {
         ZStack {
             beige_fond
@@ -29,6 +32,25 @@ struct ListZonesView: View {
                 .background(vert_nav)
                 .cornerRadius(20)
                 Spacer()
+                VStack{
+                    Text(verbatim: "\(zones.count())")
+                    
+                }
+                Spacer()
+                VStack {
+                    List{
+                        ForEach(zones.zones, id: \.self) { zone in
+                            NavigationLink(value: zone){
+                                Text(zone.nomzone)
+                                
+                            }
+                        }
+                    }
+                }
+            .task {
+                debugPrint("chargement data ?")
+                    await zoneIntent.getZones()
+            }
             }
             
         }
@@ -37,6 +59,6 @@ struct ListZonesView: View {
 
 struct ListZonesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListZonesView()
+        ListZonesView(viewModel: ListZoneViewModel(listzone: []))
     }
 }

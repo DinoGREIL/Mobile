@@ -9,8 +9,8 @@ import Foundation
 class JourModel:ObservableObject,Identifiable, Codable{
     var idjour : Int
     var nomjour:String
-    var debut:TimeInterval
-    var fin:TimeInterval
+    var debut:String
+    var fin:String
     var festival:Int
     
 
@@ -19,7 +19,7 @@ class JourModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idjour:Int,nomjour:String,debut:TimeInterval,fin:TimeInterval,festival:Int){
+    init(_idjour:Int,nomjour:String,debut:String,fin:String,festival:Int){
         self.idjour=_idjour
         self.nomjour=nomjour
         self.debut = debut

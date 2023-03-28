@@ -14,8 +14,8 @@ class JourViewModel:Identifiable, Hashable,Equatable{
     private(set) var model : JourModel
     @Published var _id : Int
     @Published var nomjour: String
-    @Published var debut: TimeInterval
-    @Published var fin:TimeInterval
+    @Published var debut: String
+    @Published var fin:String
     @Published var festival:Int
     init(jour: JourModel){
         self.model = jour
