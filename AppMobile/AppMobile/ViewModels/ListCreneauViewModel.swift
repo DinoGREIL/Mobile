@@ -12,7 +12,9 @@ class ListCreneauViewModel: ObservableObject {
     func change(name: String) {
         self.objectWillChange.send()
     }
-    
+    func count() -> Int{
+        return creneaux.count
+    }
     func remove(atOffsets indexSet : IndexSet) {
         self.creneaux.remove(atOffsets: indexSet)
         self.objectWillChange.send()

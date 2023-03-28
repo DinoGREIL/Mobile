@@ -11,6 +11,9 @@ class ListFestivalViewModel: ObservableObject {
     func change(name: String) {
         self.objectWillChange.send()
     }
+    func count() -> Int{
+        return festivals.count
+    }
     
     func remove(atOffsets indexSet : IndexSet) {
         self.festivals.remove(atOffsets: indexSet)

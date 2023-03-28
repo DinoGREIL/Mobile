@@ -10,7 +10,9 @@ class ListZoneViewModel: ObservableObject {
     func change(name: String) {
         self.objectWillChange.send()
     }
-    
+    func count() -> Int{
+        return zones.count
+    }
     func remove(atOffsets indexSet : IndexSet) {
         self.zones.remove(atOffsets: indexSet)
         self.objectWillChange.send()

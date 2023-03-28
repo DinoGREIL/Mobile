@@ -7,10 +7,10 @@
 
 import Foundation
 class CreneauModel:ObservableObject,Identifiable, Codable{
-    var _idcreneau : String
+    var idcreneau : Int
     var debut:String
     var fin:String
-    var jour:JourModel
+    var jour:Int
     
 
 /*
@@ -18,8 +18,8 @@ class CreneauModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idcreneau:String,debut:String,fin:String,jour:JourModel){
-        self._idcreneau=_idcreneau
+    init(_idcreneau:Int,debut:String,fin:String,jour:Int){
+        self.idcreneau=_idcreneau
         self.debut = debut
         self.fin = fin
         self.jour=jour

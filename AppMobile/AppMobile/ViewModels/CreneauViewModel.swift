@@ -12,21 +12,17 @@ class CreneauViewModel:Identifiable,Hashable, Equatable{
     }
     
     private(set) var model : CreneauModel
-    var _id : String{
-        return model._idcreneau
-    }
-    var debut: String{
-        return model.debut
-    }
-    var fin: String{
-        return model.fin
-    }
-    var jour:JourModel{
-        return model.jour
-    }
+    @Published var _id : Int
+    @Published var debut: String
+    @Published var fin: String
+    @Published var jour:Int
     
     init(creneau: CreneauModel){
         self.model = creneau
+        self._id=creneau.idcreneau
+        self.debut=creneau.debut
+        self.fin=creneau.fin
+        self.jour=creneau.jour
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)

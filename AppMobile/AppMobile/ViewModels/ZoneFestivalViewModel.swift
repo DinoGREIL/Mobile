@@ -10,7 +10,7 @@
 import Foundation
 class ZoneFestivalViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneFestivalViewModel, rhs: ZoneFestivalViewModel) -> Bool {
-        return (lhs.zone._idzone == rhs.zone._idzone && lhs.festival._idfestival == rhs.festival._idfestival)
+        return (lhs.zone._idzone == rhs.zone._idzone && lhs.festival.idfestival == rhs.festival.idfestival)
     }
     
     private(set) var model : ZoneFestivalModel

@@ -7,10 +7,10 @@
 
 import Foundation
 class FestivalModel:ObservableObject,Identifiable, Codable{
-    var _idfestival : String
+    var idfestival : Int
     var nomfestival:String
-    var nbjours:Int
-    var cloture:Bool
+    var nbjour:Int
+    var cloturer:Bool
     var annee: String
     
     
@@ -20,11 +20,11 @@ class FestivalModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idfestival:String,nomfestival:String,nbjours:Int,cloture:Bool, annee: String){
-        self._idfestival=_idfestival
+    init(_idfestival:Int,nomfestival:String,nbjours:Int,cloturer:Bool, annee: String){
+        self.idfestival=_idfestival
         self.nomfestival=nomfestival
-        self.nbjours = nbjours
-        self.cloture = cloture
+        self.nbjour = nbjours
+        self.cloturer = cloturer
         self.annee = annee
         
     }

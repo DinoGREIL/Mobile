@@ -9,7 +9,7 @@
 import Foundation
 class ZoneCreneauViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneCreneauViewModel, rhs: ZoneCreneauViewModel) -> Bool {
-        return (lhs.zone._idzone == rhs.zone._idzone && lhs.creneau._idcreneau == rhs.creneau._idcreneau)
+        return (lhs.zone._idzone == rhs.zone._idzone && lhs.creneau.idcreneau == rhs.creneau.idcreneau)
     }
     
     private(set) var model : ZoneCreneauModel

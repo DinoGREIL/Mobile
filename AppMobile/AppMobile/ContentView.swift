@@ -84,7 +84,9 @@ struct ContentView: View {
         ZStack {
             beige_fond
                 .ignoresSafeArea()
-            ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []))
+            //ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []))
+            //ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []))
+            FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
             // Your other content here
             // Other layers will respect the safe area edges
         }

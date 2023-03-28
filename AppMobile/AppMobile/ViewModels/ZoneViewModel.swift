@@ -12,19 +12,16 @@ class ZoneViewModel:Identifiable, Equatable{
     }
     
     private(set) var model : ZoneModel
-    var _id : String{
-        return model._idzone
-    }
-    var nomzone: String{
-        return model.nomzone
-    }
-    var nbbenevole: Int{
-        return model.nbbenevole
-    }
+    @Published var _id : Int
+    @Published var nomzone: String
+    @Published var nbbenevole: Int
     
     
     init(zone: ZoneModel){
         self.model = zone
+        self._id=zone.idzone
+        self.nomzone=zone.nomzone
+        self.nbbenevole=zone.nbbenevole
     }
     
 }
