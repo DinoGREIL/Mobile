@@ -10,10 +10,61 @@ import SwiftUI
 let beige_fond = Color(red: 0.9607843137, green: 0.9490196078, blue: 0.8431372549);
 let vert_nav = Color(red: 0.3882352941, green: 0.831372549, blue: 0.4431372549)
 struct ContentView: View {
+
+    /* @ObservedObject var festivals =
+    ListFestivalViewModel(listfestival: [FestivalViewModel(festival: FestivalModel(_idfestival: "001", nomfestival: "Delta Festival", nbjours: 3, cloture: false)),
+        FestivalViewModel(festival: FestivalModel(_idfestival: "002", nomfestival: "TGS", nbjours: 5, cloture: true)),
+        FestivalViewModel(festival: FestivalModel(_idfestival: "003", nomfestival: "Eurockéenne", nbjours: 7, cloture: true))]) */
+
     @ObservedObject var festivals = ListFestivalViewModel(listfestival: [])
     
     var body: some View {
-        TabView {
+        ZStack {
+            beige_fond
+                .ignoresSafeArea()
+            
+            VStack{
+                HStack{
+                    Text("Nom du compte")
+                        .padding(.leading,20)
+                    Spacer()
+                }
+                Text("Gestion des Festivals")
+                    .font(.system(size: 25))
+                    .padding(.top,1)
+                Divider()
+                Spacer()
+                
+                VStack{
+                    List{
+                        ForEach(festivals.festivals,id:\.self){ item in
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text("Nom : " + item.model.nomfestival);
+                                    Text("Durée : \(item.model.nbjours) jours");
+                                    if (item.model.cloture == false){
+                                        Text("En cours")
+                                    }
+                                    else{
+                                        Text("Cloturé")
+                                    }
+                                }
+                                Spacer()
+                                if (item.model.cloture == false){
+                                    Button("Modifier", action:{
+                                        
+                                    })
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        
+        
+        /*TabView {
             VStack {
                 Text("Accueil")
                     .font(.system(size: 25))
@@ -28,7 +79,8 @@ struct ContentView: View {
             .tabItem{
                 Label("Accueil",systemImage: "house.fill")
             }
-                .background(beige_fond)
+         .font(.system(size: 25))
+         .padding()
             
             VStack {
                 Text("Gestion des Jeux")
@@ -87,8 +139,9 @@ struct ContentView: View {
             ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []))
             // Your other content here
             // Other layers will respect the safe area edges
-        }
+        } */
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -96,4 +149,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
