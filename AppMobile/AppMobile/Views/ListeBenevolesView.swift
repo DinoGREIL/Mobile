@@ -21,7 +21,7 @@ struct ListeBenevolesView: View {
                 Divider()
                 Spacer()
                 VStack{
-                    Text(verbatim: verbatim: <#String#>"Nombre de bénévoles : \(benevoles.count()")
+                    Text(verbatim: "\(benevoles.count())")
                     
                 }
                 Spacer()
