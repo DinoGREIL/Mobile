@@ -12,23 +12,18 @@ class JourViewModel:Identifiable, Hashable,Equatable{
     }
     
     private(set) var model : JourModel
-    var _id : String{
-        return model._idjour
-    }
-    var nomjour: String{
-        return model.nomjour
-    }
-    var debut: TimeInterval{
-        return model.debut
-    }
-    var fin:TimeInterval{
-        return model.fin
-    }
-    var festival:FestivalModel{
-        return model.festival
-    }
+    @Published var _id : Int
+    @Published var nomjour: String
+    @Published var debut: String
+    @Published var fin:String
+    @Published var festival:Int
     init(jour: JourModel){
         self.model = jour
+        self._id=jour.idjour
+        self.nomjour=jour.nomjour
+        self.debut=jour.debut
+        self.fin=jour.fin
+        self.festival=jour.festival
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)

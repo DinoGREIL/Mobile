@@ -14,10 +14,10 @@ struct FestivalIntent {
     
    
     
-    func getBenevoles() async {
+    func getFestivals() async {
         self.model.state = .loadingFestivals
         
-        guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles") else {
+        guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/festival") else {
             debugPrint("bad url getUser")
             return
         }

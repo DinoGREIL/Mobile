@@ -1,37 +1,42 @@
+//
+//  ListDisponibleViewModel.swift
+//  AppMobile
+//
+//  Created by etud on 29/03/2023.
+//
 
 
 import Foundation
-class ListCreneauViewModel: ObservableObject {
+class ListDisponibleViewModel: ObservableObject {
     
-    @Published var creneaux = [CreneauViewModel]()
+    @Published var disponibles = [DisponibleViewModel]()
     
-    init(listcreneau: [CreneauViewModel]){
-        self.creneaux = listcreneau
+    init(list: [DisponibleViewModel]){
+        self.disponibles = list
     }
-        
     func change(name: String) {
         self.objectWillChange.send()
     }
     func count() -> Int{
-        return creneaux.count
+        return disponibles.count
     }
     func remove(atOffsets indexSet : IndexSet) {
-        self.creneaux.remove(atOffsets: indexSet)
+        self.disponibles.remove(atOffsets: indexSet)
         self.objectWillChange.send()
     }
     
     func move(fromOffsets indexSet : IndexSet, toOffset index: Int) {
-        self.creneaux.move(fromOffsets: indexSet, toOffset: index)
+        self.disponibles.move(fromOffsets: indexSet, toOffset: index)
         self.objectWillChange.send()
     }
-    @Published var state : CreneauState = .ready {
+    @Published var state : DisponibleState = .ready {
         didSet {
             switch state {
-            case .loadingCreneaux:
+            case .loadingDisponibles:
                 debugPrint("state loading UserVM")
-            case .loadedCreneaux(let newCreneaux):
+            case .loadedDisponibles(let newDisponibles):
                 //transformation UserDTO en UserViewModel
-                self.creneaux = newCreneaux.map{ creneau in CreneauViewModel(creneau: creneau)}
+                self.disponibles = newDisponibles.map{ disponible in DisponibleViewModel(disponible: disponible)}
                 debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:
@@ -45,4 +50,5 @@ class ListCreneauViewModel: ObservableObject {
             }
         }
     }
+    
 }

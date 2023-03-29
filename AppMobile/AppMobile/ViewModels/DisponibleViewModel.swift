@@ -4,20 +4,18 @@
 import Foundation
 class DisponibleViewModel:Identifiable, Equatable{
     static func == (lhs: DisponibleViewModel, rhs: DisponibleViewModel) -> Bool {
-        return (lhs.benevole.idbenevole == rhs.benevole.idbenevole && lhs.creneau._idcreneau == rhs.creneau._idcreneau)
+        return (lhs.benevole == rhs.benevole && lhs.creneau == rhs.creneau)
     }
     
     private(set) var model : DisponibleModel
-    var benevole : BenevoleModel{
-        return model.benevole
-    }
-    var creneau: CreneauModel{
-        return model.creneau
-    }
+    @Published var benevole : Int
+    @Published var creneau: Int
     
     
     init(disponible: DisponibleModel){
         self.model = disponible
+        self.benevole=disponible.idbenevole
+        self.creneau=disponible.idcreneau
     }
     
     

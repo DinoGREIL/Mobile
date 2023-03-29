@@ -7,7 +7,7 @@
 
 import Foundation
 class ZoneModel:ObservableObject,Identifiable, Codable{
-    var _idzone : String
+    var idzone : Int
     var nomzone:String
     var nbbenevole:Int
     
@@ -19,8 +19,8 @@ class ZoneModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(_idzone:String,nomzone:String,nbbenevole:Int){
-        self._idzone=_idzone
+    init(_idzone:Int,nomzone:String,nbbenevole:Int){
+        self.idzone=_idzone
         self.nomzone = nomzone
         self.nbbenevole=nbbenevole
         

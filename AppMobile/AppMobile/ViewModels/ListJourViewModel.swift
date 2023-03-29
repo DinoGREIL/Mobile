@@ -10,7 +10,9 @@ class ListJourViewModel: ObservableObject {
     func change(name: String) {
         self.objectWillChange.send()
     }
-    
+    func count() -> Int{
+        return jours.count
+    }
     func remove(atOffsets indexSet : IndexSet) {
         self.jours.remove(atOffsets: indexSet)
         self.objectWillChange.send()

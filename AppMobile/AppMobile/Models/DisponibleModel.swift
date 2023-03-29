@@ -1,19 +1,22 @@
 import Foundation
 class DisponibleModel:ObservableObject,Identifiable, Codable{
-    var benevole : BenevoleModel
+    var idbenevole : Int
     
-    var creneau:CreneauModel
+    var idcreneau:Int
 
-
+    
 /*
     var Observers:[TrackObserver]=[]
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(creneau:CreneauModel,benevole:BenevoleModel){
+    init(creneau:Int,benevole:Int){
         
-        self.creneau = creneau
-        self.benevole = benevole
+        
+        self.idbenevole = benevole
+        
+        self.idcreneau = creneau
+       
         
         
     }

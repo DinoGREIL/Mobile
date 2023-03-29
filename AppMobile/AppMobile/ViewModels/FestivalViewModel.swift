@@ -7,26 +7,20 @@ class FestivalViewModel:Identifiable, Hashable,Equatable{
     }
     
     private(set) var model : FestivalModel
-    var _id : String{
-        return model._idfestival
-    }
-    var nomfestival: String{
-        return model.nomfestival
-    }
-    var nbjours: Int{
-        return model.nbjours
-    }
+    @Published var _id : Int
+    @Published var nomfestival: String
+    @Published var nbjours: Int
     
-    var cloture:Bool{
-        return model.cloture
-    }
+    @Published var cloture:Bool
     
-    var annee: String{
-        return model.annee
-    }
-    
+    @Published var annee: String
     init(festival: FestivalModel){
         self.model = festival
+        self._id=festival.idfestival
+        self.nomfestival=festival.nomfestival
+        self.nbjours=festival.nbjour
+        self.cloture=festival.cloturer
+        self.annee=festival.annee
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)

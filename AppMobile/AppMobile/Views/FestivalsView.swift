@@ -4,11 +4,8 @@ import SwiftUI
 
 struct FestivalsView: View {
 
-    @ObservedObject var festivals =
-    ListFestivalViewModel(listfestival: [FestivalViewModel(festival: FestivalModel(_idfestival: "001", nomfestival: "Delta Festival", nbjours: 3, cloture: false,annee: "")),
-        FestivalViewModel(festival: FestivalModel(_idfestival: "002", nomfestival: "TGS", nbjours: 5, cloture: true, annee: "")),
-        FestivalViewModel(festival: FestivalModel(_idfestival: "003", nomfestival: "Eurockéenne", nbjours: 7, cloture: true,annee: ""))])
 
+    
     var body: some View {
         NavigationView {
 
@@ -50,17 +47,31 @@ struct FestivalsView: View {
                                     }
                                 }
                             }
+
+    @ObservedObject var festivals : ListFestivalViewModel
+    var festivalIntent : FestivalIntent
+    init(viewModel : ListFestivalViewModel){
+        self.festivals = viewModel
+        self.festivalIntent = FestivalIntent(model: viewModel)
+    }
+    
                         }
                     }
                 }
             }
+
+        }.task {
+            debugPrint("chargement data ?")
+                await festivalIntent.getFestivals()
         }
     }
-    
+
 }
 
 struct FestivalsView_Previews: PreviewProvider {
     static var previews: some View {
-        FestivalsView()
+
+        FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
+
     }
 }

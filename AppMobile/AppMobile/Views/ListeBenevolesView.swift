@@ -4,10 +4,13 @@ import SwiftUI
 struct ListeBenevolesView: View {
     @ObservedObject var benevoles : ListBenevolesViewModel
     var benevoleIntent : BenevoleIntent
-    
-    init(viewModel : ListBenevolesViewModel){
+    @ObservedObject var disponibles : ListDisponibleViewModel
+    var disponibleIntent : DisponibleIntent
+    init(viewModel : ListBenevolesViewModel,viewmodel2:ListDisponibleViewModel){
         self.benevoles = viewModel
         self.benevoleIntent = BenevoleIntent(model: viewModel)
+        self.disponibles = viewmodel2
+        self.disponibleIntent = DisponibleIntent(model: viewmodel2)
     }
     var body: some View {
         ZStack {
@@ -34,11 +37,15 @@ struct ListeBenevolesView: View {
                             }
                         }
                     }
+                    
                 }
-            }.task {
-                debugPrint("chargement data ?")
-                    await benevoleIntent.getBenevoles()
             }
+            .task{
+                debugPrint("chargement data dispo");
+                await disponibleIntent.getDisponibles()
+            }
+            
+            
             
         }
     }
@@ -46,6 +53,6 @@ struct ListeBenevolesView: View {
 
 struct ListeBenevolesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []))
+        ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
     }
 }
