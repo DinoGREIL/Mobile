@@ -1,7 +1,7 @@
 import Foundation
 class ZoneFestivalModel:ObservableObject,Identifiable, Codable{
-    var festival:FestivalModel
-    var zone:ZoneModel
+    var festival:Int
+    var zone:Int
     
 
 
@@ -10,7 +10,7 @@ class ZoneFestivalModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(zone:ZoneModel,festival:FestivalModel){
+    init(zone:Int,festival:Int){
         self.zone=zone
         self.festival=festival
         

@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct FestivalView: View {
-    
+
     var body: some View {
         VStack{
             NavigationView {
@@ -11,7 +11,7 @@ struct FestivalView: View {
                     Text("Retour liste festival")
                 }
             }
-            
+
         }
     }
 }

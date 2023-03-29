@@ -1,41 +1,41 @@
 //
-//  ListZoneFestivalViewModel.swift
+//  ListZoneCreneau.swift
 //  AppMobile
 //
 //  Created by etud on 29/03/2023.
 //
 
 import Foundation
-class ListZoneFestivalViewModel: ObservableObject {
+class ListZoneCreneauViewModel: ObservableObject {
     
-    @Published var zonefestival = [ZoneFestivalViewModel]()
+    @Published var zonecreneau = [ZoneCreneauViewModel]()
     
-    init(list: [ZoneFestivalViewModel]){
-        self.zonefestival = list
+    init(list: [ZoneCreneauViewModel]){
+        self.zonecreneau = list
     }
     func change(name: String) {
         self.objectWillChange.send()
     }
     func count() -> Int{
-        return zonefestival.count
+        return zonecreneau.count
     }
     func remove(atOffsets indexSet : IndexSet) {
-        self.zonefestival.remove(atOffsets: indexSet)
+        self.zonecreneau.remove(atOffsets: indexSet)
         self.objectWillChange.send()
     }
     
     func move(fromOffsets indexSet : IndexSet, toOffset index: Int) {
-        self.zonefestival.move(fromOffsets: indexSet, toOffset: index)
+        self.zonecreneau.move(fromOffsets: indexSet, toOffset: index)
         self.objectWillChange.send()
     }
-    @Published var state : ZoneFestivalState = .ready {
+    @Published var state : ZoneCreneauState = .ready {
         didSet {
             switch state {
-            case .loadingZoneFestival:
+            case .loadingZoneCreneau:
                 debugPrint("state loading UserVM")
-            case .loadedZoneFestival(let newZoneFestivals):
+            case .loadedZoneCreneau(let newZoneCreneau):
                 //transformation UserDTO en UserViewModel
-                self.zonefestival = newZoneFestivals.map{ zonefestival in ZoneFestivalViewModel(zonefestival: zonefestival)}
+                self.zonecreneau = newZoneCreneau.map{ zonecreneau in ZoneCreneauViewModel(zonecreneau: zonecreneau)}
                 debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:

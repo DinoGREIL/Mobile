@@ -8,22 +8,19 @@
 import Foundation
 class TravailViewModel:Identifiable, Equatable{
     static func == (lhs: TravailViewModel, rhs: TravailViewModel) -> Bool {
-        return (lhs.zone.idzone == rhs.zone.idzone && lhs.creneau.idcreneau == rhs.creneau.idcreneau && lhs.benevole.idbenevole == rhs.benevole.idbenevole)
+        return (lhs.zone == rhs.zone && lhs.creneau == rhs.creneau && lhs.benevole == rhs.benevole)
     }
     
     private(set) var model : TravailModel
-    var zone : ZoneModel{
-        return model.zone
-    }
-    var creneau: CreneauModel{
-        return model.creneau
-    }
-    var benevole: BenevoleModel{
-        return model.benevole
-    }
+    var zone : Int
+    var creneau: Int
+    var benevole: Int
     
     init(travail: TravailModel){
         self.model = travail
+        self.zone=travail.idzone
+        self.creneau=travail.idcreneau
+        self.benevole=travail.idbenevole
     }
     
 }

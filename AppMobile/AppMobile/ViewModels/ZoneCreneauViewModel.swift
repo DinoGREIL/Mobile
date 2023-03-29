@@ -9,20 +9,18 @@
 import Foundation
 class ZoneCreneauViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneCreneauViewModel, rhs: ZoneCreneauViewModel) -> Bool {
-        return (lhs.zone.idzone == rhs.zone.idzone && lhs.creneau.idcreneau == rhs.creneau.idcreneau)
+        return (lhs.zone == rhs.zone && lhs.creneau == rhs.creneau)
     }
     
     private(set) var model : ZoneCreneauModel
-    var zone : ZoneModel{
-        return model.zone
-    }
-    var creneau: CreneauModel{
-        return model.creneau
-    }
+    @Published var zone : Int
+    @Published var creneau: Int
     
     
     init(zonecreneau: ZoneCreneauModel){
         self.model = zonecreneau
+        self.zone=zonecreneau.zone
+        self.creneau=zonecreneau.creneau
     }
     
 }

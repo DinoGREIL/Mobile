@@ -1,8 +1,8 @@
 import Foundation
 class ZoneCreneauModel:ObservableObject,Identifiable, Codable{
     
-    var zone:ZoneModel
-    var creneau:CreneauModel
+    var zone:Int
+    var creneau:Int
 
 
 /*
@@ -10,7 +10,7 @@ class ZoneCreneauModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(zone:ZoneModel,creneau:CreneauModel){
+    init(zone:Int,creneau:Int){
         self.zone=zone
         self.creneau = creneau
        

@@ -10,20 +10,19 @@
 import Foundation
 class ZoneFestivalViewModel:Identifiable, Equatable{
     static func == (lhs: ZoneFestivalViewModel, rhs: ZoneFestivalViewModel) -> Bool {
-        return (lhs.zone.idzone == rhs.zone.idzone && lhs.festival.idfestival == rhs.festival.idfestival)
+        return (lhs.zone == rhs.zone && lhs.festival == rhs.festival)
     }
     
     private(set) var model : ZoneFestivalModel
-    var zone : ZoneModel{
-        return model.zone
-    }
-    var festival: FestivalModel{
-        return model.festival
-    }
+    @Published var zone : Int
+    
+    @Published var festival: Int
     
     
     init(zonefestival: ZoneFestivalModel){
         self.model = zonefestival
+        self.zone=zonefestival.zone
+        self.festival=zonefestival.festival
     }
     
 }

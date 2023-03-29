@@ -7,9 +7,9 @@
 
 import Foundation
 class TravailModel:ObservableObject,Identifiable, Codable{
-    var benevole : BenevoleModel
-    var zone:ZoneModel
-    var creneau:CreneauModel
+    var idbenevole : Int
+    var idzone:Int
+    var idcreneau:Int
 
 
 /*
@@ -17,10 +17,10 @@ class TravailModel:ObservableObject,Identifiable, Codable{
     func register(nouveau:TrackObserver){
         Observers.append(nouveau)
     }*/
-    init(zone:ZoneModel,creneau:CreneauModel,benevole:BenevoleModel){
-        self.zone=zone
-        self.creneau = creneau
-        self.benevole = benevole
+    init(zone:Int,creneau:Int,benevole:Int){
+        self.idzone=zone
+        self.idcreneau = creneau
+        self.idbenevole = benevole
         
         
     }
