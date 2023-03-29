@@ -8,16 +8,14 @@ class DisponibleViewModel:Identifiable, Equatable{
     }
     
     private(set) var model : DisponibleModel
-    var benevole : BenevoleModel{
-        return model.benevole
-    }
-    var creneau: CreneauModel{
-        return model.creneau
-    }
+    @Published var benevole : BenevoleModel
+    @Published var creneau: CreneauModel
     
     
     init(disponible: DisponibleModel){
         self.model = disponible
+        self.benevole=disponible.benevole
+        self.creneau=disponible.creneau
     }
     
     
