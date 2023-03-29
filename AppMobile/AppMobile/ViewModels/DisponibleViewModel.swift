@@ -14,7 +14,7 @@ class DisponibleViewModel:Identifiable, Equatable{
     
     init(disponible: DisponibleModel){
         self.model = disponible
-        self.benevole=disponible.benevole
+        self.benevole=disponible.benevole2
         self.creneau=disponible.creneau
     }
     
