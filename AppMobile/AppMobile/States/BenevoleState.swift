@@ -12,6 +12,6 @@ enum BenevoleState {
     case error
     case loadingBenevoles
     case loadedBenevoles([BenevoleModel])
-    case deletingBenevole
+    case connected(BenevoleModel)
     
 }

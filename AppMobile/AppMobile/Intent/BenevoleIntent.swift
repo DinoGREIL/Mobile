@@ -166,4 +166,39 @@ struct BenevoleIntent {
         } catch {
             debugPrint("probleme de delete")
         }
-    }}
+    }
+    
+    func signin(email: String,password:String) async->BenevoleModel {
+        
+        do {
+            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles") else {
+                print("bad URL")
+                return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            // append a value to a field
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            // set (replace) a value to a field
+            let benevole=BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: email, admin: false, password: password)
+            guard let encoded = await JSONHelper.encode(data: benevole) else {
+                print(" pb encodage")
+                return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
+            }
+            let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
+            
+            let sdata = String(data: data, encoding: .utf8)!
+            debugPrint(sdata)
+            guard let decoded : BenevoleModel = await JSONHelper.decode(data: data) else{
+                debugPrint("mauvaise récup données")
+                return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
+            }
+            return decoded
+        } catch {
+            print("probleme de signin")
+        }
+        return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
+    }
+    
+    
+}
