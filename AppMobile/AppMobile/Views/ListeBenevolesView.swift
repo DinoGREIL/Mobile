@@ -42,7 +42,7 @@ struct ListeBenevolesView: View {
             }
             .task{
                 debugPrint("chargement data dispo");
-                print(await benevoleIntent.signin(email: "kjf", password: "blabla"))
+                print(await benevoleIntent.getBenevoles())
             }
             
             
