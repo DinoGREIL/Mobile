@@ -84,8 +84,8 @@ struct ContentView: View {
         ZStack {
             beige_fond
                 .ignoresSafeArea()
-            //ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
-            ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []))
+            ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
+            //ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []))
             //FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
             //ListeJoursView(viewModel: ListJourViewModel(listjour: []))
             //ListZonesView(viewModel: ListZoneViewModel(listzone: []))

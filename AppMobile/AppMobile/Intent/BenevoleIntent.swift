@@ -171,7 +171,7 @@ struct BenevoleIntent {
     func signin(email: String,password:String) async->BenevoleModel {
         
         do {
-            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles") else {
+            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/signin") else {
                 print("bad URL")
                 return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
             }
@@ -189,11 +189,11 @@ struct BenevoleIntent {
             
             let sdata = String(data: data, encoding: .utf8)!
             debugPrint(sdata)
-            guard let decoded : BenevoleModel = await JSONHelper.decode(data: data) else{
+            guard let decoded : [BenevoleModel] = await JSONHelper.decode(data: data) else{
                 debugPrint("mauvaise récup données")
                 return BenevoleModel(_idbenevole: 0, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: "")
             }
-            return decoded
+            return decoded[0]
         } catch {
             print("probleme de signin")
         }
