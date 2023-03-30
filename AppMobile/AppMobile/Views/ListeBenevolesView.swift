@@ -42,7 +42,7 @@ struct ListeBenevolesView: View {
             }
             .task{
                 debugPrint("chargement data dispo");
-                print(await benevoleIntent.getBenevoles())
+                print(await benevoleIntent.deleteBenevolebyid(id: 1))
             }
             
             

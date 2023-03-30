@@ -144,7 +144,7 @@ struct BenevoleIntent {
         }
     }
     
-    func deleteBenevolebyid(id:Int) async{
+    func deleteBenevolebyid(id:Int) async {
         do {
             guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles/\(id)") else {
                 print("bad URL")
@@ -152,6 +152,7 @@ struct BenevoleIntent {
             }
             var request = URLRequest(url: url)
             request.httpMethod = "DELETE"
+            print(request)
             // append a value to a field
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
@@ -162,7 +163,7 @@ struct BenevoleIntent {
             debugPrint(encoded)
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
             let sdata = String(data: data, encoding: .utf8)!
-            debugPrint(response)
+            debugPrint(sdata)
         } catch {
             debugPrint("probleme de delete")
         }
