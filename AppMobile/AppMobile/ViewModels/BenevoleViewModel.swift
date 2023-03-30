@@ -34,6 +34,7 @@ class BenevoleViewModel:Identifiable,Hashable, Equatable{
     @Published var state : BenevoleState = .ready {
         didSet {
             switch state {
+            
             case .error:
                 debugPrint("error")
                 self.state = .ready

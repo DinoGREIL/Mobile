@@ -8,9 +8,10 @@
 import Foundation
 enum BenevoleState {
     case ready
-    case changingName(String)
+    case changingName(BenevoleModel)
     case error
     case loadingBenevoles
     case loadedBenevoles([BenevoleModel])
+    case deletingBenevole
     
 }

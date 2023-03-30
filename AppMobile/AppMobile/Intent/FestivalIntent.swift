@@ -61,4 +61,7 @@ struct FestivalIntent {
         catch{
             debugPrint("bad request")
         }
-    }}
+    }
+    
+    
+}

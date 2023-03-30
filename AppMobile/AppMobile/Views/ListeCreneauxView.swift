@@ -30,7 +30,7 @@ struct ListeCreneauxView: View {
             }
         }.task {
             debugPrint("chargement data ?")
-                await creneauIntent.getCreneaux()
+            await creneauIntent.deleteCreneaubyid(id: 3)
         }
     }
 }
