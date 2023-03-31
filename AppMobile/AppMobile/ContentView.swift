@@ -87,8 +87,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
             //ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
             //ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []),viewmodel2:ListJourViewModel(listjour: []))
-            FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
-            //ListeJoursView(viewModel: ListJourViewModel(listjour: []))
+            //FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
+            ListeJoursView(viewModel: ListJourViewModel(listjour: []),viewModel2: ListFestivalViewModel(listfestival: []))
             //ListZonesView(viewModel: ListZoneViewModel(listzone: []))
             // Your other content here
             // Other layers will respect the safe area edges

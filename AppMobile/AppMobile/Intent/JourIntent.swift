@@ -98,7 +98,7 @@ struct JourIntent {
             debugPrint("bad request")
         }
     }
-    func createJour(festival: JourModel) async {
+    func createJour(jour: JourModel) async {
         
         do {
             guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/jour") else {
@@ -110,7 +110,7 @@ struct JourIntent {
             // append a value to a field
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
-            guard let encoded = await JSONHelper.encode(data: festival) else {
+            guard let encoded = await JSONHelper.encode(data: jour) else {
                 print("GoRest: pb encodage")
                 return
             }
