@@ -105,6 +105,8 @@ struct ListeBenevolesView: View {
                                     Text("Détail")
                                 }.simultaneousGesture(TapGesture().onEnded{
                                     settings.name = benevole.BenevoleNom
+                                    settings.prenom = benevole.BenevolePrenom
+                                    settings.email = benevole.BenevoleMail
                                 })
                             }
                             .padding(3)

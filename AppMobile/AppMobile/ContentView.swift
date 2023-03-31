@@ -12,6 +12,8 @@ let vert_nav = Color(red: 0.3882352941, green: 0.831372549, blue: 0.4431372549)
 
 class BenevoleSettings: ObservableObject{
     @Published var name = ""
+    @Published var prenom = ""
+    @Published var email = ""
 }
 
 struct ContentView: View {
