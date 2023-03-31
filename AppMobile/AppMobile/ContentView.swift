@@ -9,8 +9,13 @@ import SwiftUI
 
 let beige_fond = Color(red: 0.9607843137, green: 0.9490196078, blue: 0.8431372549);
 let vert_nav = Color(red: 0.3882352941, green: 0.831372549, blue: 0.4431372549)
+
+class BenevoleSettings: ObservableObject{
+    @Published var name = ""
+}
+
 struct ContentView: View {
-    @ObservedObject var festivals = ListFestivalViewModel(listfestival: [])
+    @StateObject var settings = BenevoleSettings()
     
     var body: some View {
         NavigationStack{
@@ -38,22 +43,15 @@ struct ContentView: View {
                 NavigationLink("Gestion des Zones"){
                     ListZonesView(viewModel: ListZoneViewModel(listzone: []))
                 }
-                Spacer()
+            }
+            ZStack {
+                beige_fond
+                    .ignoresSafeArea()
             }
         }
-        
-        ZStack {
-            beige_fond
-                .ignoresSafeArea()
-            //ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
-            //ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []),viewmodel2:ListJourViewModel(listjour: []))
-            //FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
-            ListeJoursView(viewModel: ListJourViewModel(listjour: []),viewModel2: ListFestivalViewModel(listfestival: []))
-            //ListZonesView(viewModel: ListZoneViewModel(listzone: []))
-            // Your other content here
-            // Other layers will respect the safe area edges
-        }
+        .environmentObject(settings)
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

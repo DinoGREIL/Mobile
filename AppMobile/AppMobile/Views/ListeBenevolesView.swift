@@ -1,12 +1,8 @@
 
 import SwiftUI
 
-class BenevoleSettings: ObservableObject{
-    @Published var name = ""
-}
-
 struct ListeBenevolesView: View {
-    @StateObject var settings = BenevoleSettings()
+    @EnvironmentObject var settings: BenevoleSettings
 
     @State var email:String=""
     @State var nombenevole:String=""
@@ -131,6 +127,6 @@ struct ListeBenevolesView: View {
 
 struct ListeBenevolesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
+        ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: [])).environmentObject(BenevoleSettings())
     }
 }
