@@ -14,6 +14,9 @@ class BenevoleSettings: ObservableObject{
     @Published var name = ""
     @Published var prenom = ""
     @Published var email = ""
+    @Published var nomFestival = ""
+    @Published var dureeFestival = 0
+    @Published var anneeFestival = ""
 }
 
 struct ContentView: View {
