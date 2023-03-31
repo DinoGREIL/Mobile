@@ -9,91 +9,49 @@ import SwiftUI
 
 let beige_fond = Color(red: 0.9607843137, green: 0.9490196078, blue: 0.8431372549);
 let vert_nav = Color(red: 0.3882352941, green: 0.831372549, blue: 0.4431372549)
+
+class BenevoleSettings: ObservableObject{
+    @Published var name = ""
+}
+
 struct ContentView: View {
-    @ObservedObject var festivals = ListFestivalViewModel(listfestival: [])
+    @StateObject var settings = BenevoleSettings()
     
     var body: some View {
-        TabView {
+        NavigationStack{
             VStack {
                 Text("Accueil")
                     .font(.system(size: 25))
                     .padding()
                 Divider()
                 Spacer()
-                // Bleeds into TabView
-                Rectangle()
-                    .frame(height: 3)
-                    .background(vert_nav)
-                }
-            .tabItem{
-                Label("Accueil",systemImage: "house.fill")
             }
-                .background(beige_fond)
-            
-            VStack {
-                Text("Gestion des Jeux")
-                    .font(.system(size: 25))
-                    .padding()
-                Divider()
-                Spacer()
-                // Bleeds into TabView
-                Rectangle()
-                        .frame(height: 3)
-                        .background(vert_nav)
+            .background(beige_fond)
+            VStack{
+                NavigationLink("Gestion des festivals"){
+                    FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
                 }
-                .tabItem {
-                    Label("Jeux",systemImage: "checkerboard.rectangle")
+                NavigationLink("Gestion des Jours"){
+                    ListeJoursView(viewModel: ListJourViewModel(listjour: []),viewModel2: ListFestivalViewModel(listfestival: []))
                 }
-                .background(beige_fond)
-            
-            VStack {
-                Text("Gestion des Bénévoles")
-                    .font(.system(size: 25))
-                    .padding()
-                Divider()
-                Spacer()
-                // Bleeds into TabView
-                Rectangle()
-                        .frame(height: 3)
-                        .background(vert_nav)
+                NavigationLink("Gestion des Creneaux"){
+                    ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []),viewmodel2:ListJourViewModel(listjour: []))
                 }
-                .tabItem {
-                    Label("Bénévoles",systemImage: "person.fill")
+                NavigationLink("Gestion des Bénévoles"){
+                    ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
                 }
-                .background(beige_fond)
-            
-            VStack {
-                Text("Gestion des Zones")
-                    .font(.system(size: 25))
-                    .padding()
-                Divider()
-                Spacer()
-                // Bleeds into TabView
-                Rectangle()
-                    .frame(height: 3)
-                    .background(vert_nav)
-                
+                NavigationLink("Gestion des Zones"){
+                    ListZonesView(viewModel: ListZoneViewModel(listzone: []))
                 }
-                .tabItem {
-                    Label("Zones",systemImage:"mappin.and.ellipse")
-                }
-                .background(beige_fond)
-            
-            
-            
+            }
+            ZStack {
+                beige_fond
+                    .ignoresSafeArea()
+            }
         }
-        ZStack {
-            beige_fond
-                .ignoresSafeArea()
-            //ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: []))
-            //ListeCreneauxView(viewModel: ListCreneauViewModel(listcreneau: []),viewmodel2:ListJourViewModel(listjour: []))
-            //FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
-            ListeJoursView(viewModel: ListJourViewModel(listjour: []),viewModel2: ListFestivalViewModel(listfestival: []))
-            //ListZonesView(viewModel: ListZoneViewModel(listzone: []))
-            // Your other content here
-            // Other layers will respect the safe area edges
-        }
+        .environmentObject(settings)
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
