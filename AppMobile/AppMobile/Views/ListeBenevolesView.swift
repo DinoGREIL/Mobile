@@ -1,7 +1,13 @@
 
 import SwiftUI
 
+class BenevoleSettings: ObservableObject{
+    @Published var name = ""
+}
+
 struct ListeBenevolesView: View {
+    @StateObject var settings = BenevoleSettings()
+
     @State var email:String=""
     @State var nombenevole:String=""
     @State var prenom:String=""
@@ -19,100 +25,107 @@ struct ListeBenevolesView: View {
         self.disponibleIntent = DisponibleIntent(model: viewmodel2)
     }
     var body: some View {
-        VStack {
-            beige_fond
-                .ignoresSafeArea()
-            
-            // Your other content here
-            // Other layers will respect the safe area edges
+        NavigationStack{
+            VStack {
+                beige_fond
+                    .ignoresSafeArea()
+                
+                // Your other content here
+                // Other layers will respect the safe area edges
                 Text(result)
                 TextField("Nom",text :$nombenevole)
                     .padding()
                     .cornerRadius(5.0)
                     .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.blue, lineWidth: 1)
-                        ).padding(.bottom,30)
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.blue, lineWidth: 1)
+                    ).padding(.bottom,30)
                 
-            
+                
                 TextField("Prenom",text :$prenom)
                     .padding()
                     .cornerRadius(5.0)
                     .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.blue, lineWidth: 1)
-                        ).padding(.bottom,30)
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.blue, lineWidth: 1)
+                    ).padding(.bottom,30)
                 
-            
+                
                 TextField("Email",text :$email)
                     .padding()
                     .cornerRadius(5.0)
                     .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.blue, lineWidth: 1)
-                        ).padding(.bottom,30)
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.blue, lineWidth: 1)
+                    ).padding(.bottom,30)
                 
-           
-            
+                
+                
                 TextField("Mot de passe",text :$password)
                     .padding()
                     .cornerRadius(5.0)
                     .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-            
-            Button("Créer un bénévole") {
-                Task {
-                    if(nombenevole==""){
-                        result="Veuillez mettre un nom"
-                    }
-                    else if(prenom==""){
-                        result="Veuillez mettre un prenom"
-                    }
-                    else if(email==""){
-                        result="Veuillez mettre un email"
-                    }
-                    else if(password==""){result="Veuillez mettre un mot de passe"}
-                    else{let message:String = await benevoleIntent.createBenevole(benevole:BenevoleModel(_idbenevole: 0, BenevoleNom: nombenevole, BenevolePrenom: prenom, BenevoleMail: email, admin: false, password: password))
-                        result=message}
-                    
-                    
-                    
-                }
-            }
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.blue, lineWidth: 1)
+                    )
                 
-            
-            
-            VStack{
-                Text("Gestion des Bénévoles")
-                Divider()
-                Spacer()
-                VStack{
-                    Text(verbatim: "Nombre de bénévoles présents:  \(benevoles.count())")
-                    
+                Button("Créer un bénévole") {
+                    Task {
+                        if(nombenevole==""){
+                            result="Veuillez mettre un nom"
+                        }
+                        else if(prenom==""){
+                            result="Veuillez mettre un prenom"
+                        }
+                        else if(email==""){
+                            result="Veuillez mettre un email"
+                        }
+                        else if(password==""){result="Veuillez mettre un mot de passe"}
+                        else{let message:String = await benevoleIntent.createBenevole(benevole:BenevoleModel(_idbenevole: 0, BenevoleNom: nombenevole, BenevolePrenom: prenom, BenevoleMail: email, admin: false, password: password))
+                            result=message}
+                        
+                        
+                        
+                    }
                 }
-                Spacer()
-                VStack {
-                    List{
+                
+                
+                
+                VStack{
+                    Text("Gestion des Bénévoles")
+                    Divider()
+                    Spacer()
+                    VStack{
+                        Text(verbatim: "Nombre de bénévoles présents:  \(benevoles.count())")
+                        
+                    }
+                    Spacer()
+                    VStack {
                         ForEach(benevoles.benevoles, id: \.self) { benevole in
-                            NavigationLink(value: benevole){
+                            HStack{
                                 Text(benevole.BenevoleNom)
                                 Text(benevole.BenevolePrenom)
+                                NavigationLink(destination: BenevoleView()){
+                                    Text("Détail")
+                                }.simultaneousGesture(TapGesture().onEnded{
+                                    settings.name = benevole.BenevoleNom
+                                })
                             }
+                            .padding(3)
                         }
+                        Spacer()
                     }
-                    
                 }
+                .task{
+                    debugPrint("chargement data dispo");
+                    print(await benevoleIntent.getBenevoles())
+                }
+                
+                
+                
             }
-            .task{
-                debugPrint("chargement data dispo");
-                print(await benevoleIntent.getBenevoles())
-            }
-            
-            
-             
         }
+        .environmentObject(settings)
     }
 }
 
