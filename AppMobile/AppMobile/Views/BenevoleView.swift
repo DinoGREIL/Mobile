@@ -2,13 +2,18 @@
 import SwiftUI
 
 struct BenevoleView: View {
+    @EnvironmentObject var settings: BenevoleSettings
     var body: some View {
-        Text("")
+        VStack{
+            Text("Info Bénévole")
+            Text("\(settings.name)")
+        }
+        .environmentObject(settings)
     }
 }
 
 struct BenevoleView_Previews: PreviewProvider {
     static var previews: some View {
-        BenevoleView()
+        BenevoleView().environmentObject(BenevoleSettings())
     }
 }
