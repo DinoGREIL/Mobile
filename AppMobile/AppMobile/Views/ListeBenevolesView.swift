@@ -2,6 +2,12 @@
 import SwiftUI
 
 struct ListeBenevolesView: View {
+    @State var email:String=""
+    @State var nombenevole:String=""
+    @State var prenom:String=""
+    @State var password:String=""
+    @State var result:String=""
+    
     @ObservedObject var benevoles : ListBenevolesViewModel
     var benevoleIntent : BenevoleIntent
     @ObservedObject var disponibles : ListDisponibleViewModel
@@ -13,18 +19,77 @@ struct ListeBenevolesView: View {
         self.disponibleIntent = DisponibleIntent(model: viewmodel2)
     }
     var body: some View {
-        ZStack {
+        VStack {
             beige_fond
                 .ignoresSafeArea()
             
             // Your other content here
             // Other layers will respect the safe area edges
+                Text(result)
+                TextField("Nom",text :$nombenevole)
+                    .padding()
+                    .cornerRadius(5.0)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 1)
+                        ).padding(.bottom,30)
+                
+            
+                TextField("Prenom",text :$prenom)
+                    .padding()
+                    .cornerRadius(5.0)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 1)
+                        ).padding(.bottom,30)
+                
+            
+                TextField("Email",text :$email)
+                    .padding()
+                    .cornerRadius(5.0)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 1)
+                        ).padding(.bottom,30)
+                
+           
+            
+                TextField("Mot de passe",text :$password)
+                    .padding()
+                    .cornerRadius(5.0)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+            
+            Button("Créer un bénévole") {
+                Task {
+                    if(nombenevole==""){
+                        result="Veuillez mettre un nom"
+                    }
+                    else if(prenom==""){
+                        result="Veuillez mettre un prenom"
+                    }
+                    else if(email==""){
+                        result="Veuillez mettre un email"
+                    }
+                    else if(password==""){result="Veuillez mettre un mot de passe"}
+                    else{let message:String = await benevoleIntent.createBenevole(benevole:BenevoleModel(_idbenevole: 0, BenevoleNom: nombenevole, BenevolePrenom: prenom, BenevoleMail: email, admin: false, password: password))
+                        result=message}
+                    
+                    
+                    
+                }
+            }
+                
+            
+            
             VStack{
                 Text("Gestion des Bénévoles")
                 Divider()
                 Spacer()
                 VStack{
-                    Text(verbatim: "\(benevoles.count())")
+                    Text(verbatim: "Nombre de bénévoles présents:  \(benevoles.count())")
                     
                 }
                 Spacer()
@@ -42,11 +107,11 @@ struct ListeBenevolesView: View {
             }
             .task{
                 debugPrint("chargement data dispo");
-                print(await benevoleIntent.deleteBenevolebyid(id: 1))
+                print(await benevoleIntent.getBenevoles())
             }
             
             
-            
+             
         }
     }
 }

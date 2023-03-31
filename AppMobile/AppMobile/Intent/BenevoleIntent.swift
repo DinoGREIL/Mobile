@@ -97,12 +97,12 @@ struct BenevoleIntent {
             debugPrint("bad request")
         }
     }
-    func createBenevole(benevole: BenevoleModel) async {
+    func createBenevole(benevole: BenevoleModel) async->String {
         
         do {
             guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/benevoles") else {
                 print("bad URL")
-                return
+                return("bad url")
             }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -110,15 +110,17 @@ struct BenevoleIntent {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
             guard let encoded = await JSONHelper.encode(data: benevole) else {
-                print("GoRest: pb encodage")
-                return
+                print("pb encodage")
+                return("pb encodage")
             }
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
             let sdata = String(data: data, encoding: .utf8)!
             debugPrint(sdata)
+            return(sdata)
         } catch {
             print("probleme de create")
         }
+        return("pb de create")
     }
     func updateBenevole(id:Int,benevole: BenevoleModel) async {
         

@@ -34,6 +34,7 @@ struct ListeJoursView: View {
                 await jourIntent.getJours()
         }
     }
+    
 }
 /*
 struct ListeJoursView_Previews: PreviewProvider {
