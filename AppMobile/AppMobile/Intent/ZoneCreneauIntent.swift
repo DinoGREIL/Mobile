@@ -16,39 +16,26 @@ struct ZoneCreneauIntent {
         self.model.state = .loadingZoneCreneau
         
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonecreneau") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
-            /*var requete = URLRequest(url: url)
-            requete.httpMethod = "GET"
-            //append a value to a field
-            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-             */
-            //set (replace) a value to a field
-            //requete.setValue(<#T##value: String?##String?#>, forHTTPHeaderField: <#T##String#>)
-            /*
-            guard let encoded = await JSONHelper.encode(data: self.user) else {
-                print("pb encodage")
-                return
-            }
-            let (data, response) = try await URLSession.shared.upload(for: requete, from: encoded)*/
+            
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
-               // model.state = .loadedUsers([UserDTO(idUtilisateur: 11, nom: "truc", prenom: "mgd", email: "ege", mdp: "fefe", isAdmin: 1)])
+                
                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneCreneauModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneCreneau(decoded)
                 
             }
@@ -64,27 +51,26 @@ struct ZoneCreneauIntent {
     func getZoneCreneaubyidzone(id:Int) async{
         self.model.state = .loadingZoneCreneau
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonecreneauzone/\(id)") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
+                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneCreneauModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneCreneau(decoded)
                 
             }
@@ -100,27 +86,26 @@ struct ZoneCreneauIntent {
     func getZoneCreneaubyidcreneau(id:Int) async{
         self.model.state = .loadingZoneCreneau
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonecreneaucreneau/\(id)") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
+                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneCreneauModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneCreneau(decoded)
                 
             }
@@ -150,7 +135,7 @@ struct ZoneCreneauIntent {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
             guard let encoded = await JSONHelper.encode(data: zonecreneau) else {
-                print("GoRest: pb encodage")
+                 print("pb encodage")
                 return
             }
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)

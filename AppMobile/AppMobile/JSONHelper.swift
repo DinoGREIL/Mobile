@@ -17,29 +17,16 @@ extension URLSession{
 struct JSONHelper{
     static func decode<T : Decodable>(data: Data) async -> T?{
         let decoder = JSONDecoder()
-       // debugPrint("format data")
-       // debugPrint(data)
-        /*guard let decoded = try? decoder.decode(T.self, from: data) else{
-            
-            debugPrint("errerur deco")
-            return nil
-        }*/
+       
         do {
             let decoded = try decoder.decode(T.self, from: data)
-            debugPrint("dans le do")
-            debugPrint(decoded)
+            
             return decoded
         } catch {
-            debugPrint("error euh")
-            debugPrint(error)
-            debugPrint(error.localizedDescription)
+            
             return nil
         }
-      //  debugPrint("DECODED")
-       // return decoded
-        //debugPrint(decoded)
-        //return decoded
-     //   return nil
+     
     }
     
     static func encode<T : Encodable>(data: T) async -> Data?{

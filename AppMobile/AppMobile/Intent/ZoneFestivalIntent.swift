@@ -17,39 +17,26 @@ struct ZoneFestivalIntent {
         self.model.state = .loadingZoneFestival
         
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonefestival") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
-            /*var requete = URLRequest(url: url)
-            requete.httpMethod = "GET"
-            //append a value to a field
-            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-             */
-            //set (replace) a value to a field
-            //requete.setValue(<#T##value: String?##String?#>, forHTTPHeaderField: <#T##String#>)
-            /*
-            guard let encoded = await JSONHelper.encode(data: self.user) else {
-                print("pb encodage")
-                return
-            }
-            let (data, response) = try await URLSession.shared.upload(for: requete, from: encoded)*/
+            
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
-               // model.state = .loadedUsers([UserDTO(idUtilisateur: 11, nom: "truc", prenom: "mgd", email: "ege", mdp: "fefe", isAdmin: 1)])
+                
                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneFestivalModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneFestival(decoded)
                 
             }
@@ -65,27 +52,26 @@ struct ZoneFestivalIntent {
     func getZoneFestivalbyidzone(id:Int) async{
         self.model.state = .loadingZoneFestival
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonefestivalzone/\(id)") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
+                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneFestivalModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneFestival(decoded)
                 
             }
@@ -101,27 +87,26 @@ struct ZoneFestivalIntent {
     func getZoneFestivalbyidfestival(id:Int) async{
         self.model.state = .loadingZoneFestival
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/zonefestivalfestival/\(id)") else {
-            debugPrint("bad url getUser")
+             
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+             
+             
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
+                 
                 debugPrint("\(sdata)")
                 guard let decoded : [ZoneFestivalModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                 
                 model.state = .loadedZoneFestival(decoded)
                 
             }
@@ -151,7 +136,7 @@ struct ZoneFestivalIntent {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
             guard let encoded = await JSONHelper.encode(data: zonefestival) else {
-                print("GoRest: pb encodage")
+                 print("pb encodage")
                 return
             }
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)

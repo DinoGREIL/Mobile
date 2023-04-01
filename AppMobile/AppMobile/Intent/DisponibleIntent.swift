@@ -20,39 +20,24 @@ struct DisponibleIntent {
         self.model.state = .loadingDisponibles
         
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponible") else {
-            debugPrint("bad url getUser")
+            
             return
         }
         do{
-            /*var requete = URLRequest(url: url)
-            requete.httpMethod = "GET"
-            //append a value to a field
-            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-             */
-            //set (replace) a value to a field
-            //requete.setValue(<#T##value: String?##String?#>, forHTTPHeaderField: <#T##String#>)
-            /*
-            guard let encoded = await JSONHelper.encode(data: self.user) else {
-                print("pb encodage")
-                return
-            }
-            let (data, response) = try await URLSession.shared.upload(for: requete, from: encoded)*/
+            
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+            
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
-               // model.state = .loadedUsers([UserDTO(idUtilisateur: 11, nom: "truc", prenom: "mgd", email: "ege", mdp: "fefe", isAdmin: 1)])
+               
                 
-                debugPrint("\(sdata)")
+                
                 guard let decoded : [DisponibleModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                     
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
                 model.state = .loadedDisponibles(decoded)
                 
             }
@@ -68,27 +53,24 @@ struct DisponibleIntent {
     func getDisponiblebyidbenevole(id:Int) async{
         self.model.state = .loadingDisponibles
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponiblebenevole/\(id)") else {
-            debugPrint("bad url getUser")
+          
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+            
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
-                debugPrint("\(sdata)")
+                
                 guard let decoded : [DisponibleModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                    
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                
                 model.state = .loadedDisponibles(decoded)
                 
             }
@@ -105,27 +87,24 @@ struct DisponibleIntent {
     func getDisponiblebyidcreneau(id:Int) async{
         self.model.state = .loadingDisponibles
         guard let url = URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponiblecreneau/\(id)") else {
-            debugPrint("bad url getUser")
+            
             return
         }
         do{
             
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+            
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 
-                debugPrint("je suis conne")
-                debugPrint("\(sdata)")
+               
                 guard let decoded : [DisponibleModel] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
+                    
                     return
                 }
                 
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
+                
                 model.state = .loadedDisponibles(decoded)
                 
             }
@@ -146,7 +125,7 @@ struct DisponibleIntent {
         
         do {
             guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponible") else {
-                print("bad URL")
+                
                 return
             }
             var request = URLRequest(url: url)
@@ -155,12 +134,12 @@ struct DisponibleIntent {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
             guard let encoded = await JSONHelper.encode(data: disponible) else {
-                print("GoRest: pb encodage")
+                print("pb encodage")
                 return
             }
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
             let sdata = String(data: data, encoding: .utf8)!
-            debugPrint(sdata)
+            
         } catch {
             print("probleme de create")
         }
@@ -170,7 +149,7 @@ struct DisponibleIntent {
     func deleteDisponiblebyid(id:Int) async{
         do {
             guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponible/\(id)") else {
-                print("bad URL")
+               
                 return
             }
             var request = URLRequest(url: url)
@@ -182,10 +161,10 @@ struct DisponibleIntent {
                 print("pb encodage")
                 return
             }
-            debugPrint(encoded)
+            
             let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
             let sdata = String(data: data, encoding: .utf8)!
-            debugPrint(response)
+            
         } catch {
             debugPrint("probleme de delete")
         }
