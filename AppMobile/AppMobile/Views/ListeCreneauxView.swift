@@ -68,30 +68,7 @@ struct ListeCreneauxView: View {
                             
                         }
                     }}}
-                /*
-                 VStack{
-                 Text("Gestion des Creneaux")
-                 Divider()
-                 Spacer()
-                 VStack{
-                 Text(verbatim: "\(creneaux.count())")
-                 
-                 }
-                 Spacer()
-                 VStack {
-                 List{
-                 ForEach(creneaux.creneaux, id: \.self) { creneau in
-                 NavigationLink(value: creneau){
-                 Text(creneau.debut)
-                 Text(creneau.fin)
-                 }
-                 }
-                 }
-                 }
-                 }.task {
-                 debugPrint("chargement data ?")
-                 await creneauIntent.deleteCreneaubyid(id: 3)
-                 }*/
+                
             }
         }
 

@@ -66,7 +66,7 @@ struct ListZonesView: View {
                     }
                 }
             .task {
-                debugPrint("chargement data ?")
+                
                     await zoneIntent.getZones()
                     
             }

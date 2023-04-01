@@ -115,7 +115,7 @@ struct ListeBenevolesView: View {
                     }
                 }
                 .task{
-                    debugPrint("chargement data dispo");
+                    
                     print(await benevoleIntent.getBenevoles())
                 }
                 
