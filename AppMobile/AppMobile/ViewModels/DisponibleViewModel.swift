@@ -2,7 +2,7 @@
 
 
 import Foundation
-class DisponibleViewModel:Identifiable, Equatable{
+class DisponibleViewModel:Identifiable, Equatable,Hashable{
     static func == (lhs: DisponibleViewModel, rhs: DisponibleViewModel) -> Bool {
         return (lhs.benevole == rhs.benevole && lhs.creneau == rhs.creneau)
     }
@@ -10,7 +10,9 @@ class DisponibleViewModel:Identifiable, Equatable{
     private(set) var model : DisponibleModel
     @Published var benevole : Int
     @Published var creneau: Int
-    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
     
     init(disponible: DisponibleModel){
         self.model = disponible

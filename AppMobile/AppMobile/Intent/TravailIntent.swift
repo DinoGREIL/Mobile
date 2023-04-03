@@ -158,10 +158,10 @@ struct TravailIntent {
     
     
     
-    func createDisponible(disponible: DisponibleModel) async {
+    func createTravail(travail: TravailModel) async {
         
         do {
-            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/disponible") else {
+            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/travail") else {
                 print("bad URL")
                 return
             }
@@ -170,7 +170,7 @@ struct TravailIntent {
             // append a value to a field
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
-            guard let encoded = await JSONHelper.encode(data: disponible) else {
+            guard let encoded = await JSONHelper.encode(data: travail) else {
                  print("pb encodage")
                 return
             }

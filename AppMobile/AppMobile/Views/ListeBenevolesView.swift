@@ -119,23 +119,18 @@ struct ListeBenevolesView: View {
                     print(await benevoleIntent.getBenevoles())
                 }
                 
-                
+                NavigationLink("Ajouter des disponibilités"){
+                    addDispo(viewModel: ListBenevolesViewModel(benevoles: []), viewmodel2: ListCreneauViewModel(listcreneau: []))
+                }
                 
             }
         }
         .environmentObject(settings)
     }
 }
-struct addDispo:View{
-    @EnvironmentObject var benevole: BenevoleModel
-    @ObservedObject var creneaux : ListCreneauViewModel
-    var creneauIntent : CreneauIntent
-    @State private var selection:CreneauViewModel=CreneauViewModel(creneau: CreneauModel(_idcreneau: -1, debut: "", fin: "", jour: -1)))
-    var body: some View {
-        
-    }
-        
-}
+
+    
+
 struct ListeBenevolesView_Previews: PreviewProvider {
     static var previews: some View {
         ListeBenevolesView(viewModel: ListBenevolesViewModel(benevoles: []),viewmodel2: ListDisponibleViewModel(list: [])).environmentObject(BenevoleSettings())
