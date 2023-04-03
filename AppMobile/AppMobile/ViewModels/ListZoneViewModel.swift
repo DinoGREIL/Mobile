@@ -26,17 +26,17 @@ class ListZoneViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingZones:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading zones")
             case .loadedZones(let newZones):
                 //transformation UserDTO en UserViewModel
                 self.zones = newZones.map{ zone in ZoneViewModel(zone: zone)}
-                debugPrint("jai charge les donnees")
+                debugPrint("zones chargées")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

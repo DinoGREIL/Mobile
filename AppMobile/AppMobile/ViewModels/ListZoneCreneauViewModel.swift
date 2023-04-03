@@ -36,13 +36,13 @@ class ListZoneCreneauViewModel: ObservableObject {
             case .loadedZoneCreneau(let newZoneCreneau):
                 //transformation UserDTO en UserViewModel
                 self.zonecreneau = newZoneCreneau.map{ zonecreneau in ZoneCreneauViewModel(zonecreneau: zonecreneau)}
-                debugPrint("jai charge les donnees")
+                debugPrint("zonecreneau chargée")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

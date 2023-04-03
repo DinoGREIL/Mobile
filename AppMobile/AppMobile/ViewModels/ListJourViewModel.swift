@@ -26,17 +26,17 @@ class ListJourViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingJours:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading jours")
             case .loadedJours(let newJours):
                 //transformation UserDTO en UserViewModel
                 self.jours = newJours.map{ jour in JourViewModel(jour: jour)}
-                debugPrint("jai charge les donnees")
+                debugPrint("jours chargés")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

@@ -33,17 +33,17 @@ class ListDisponibleViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingDisponibles:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading dispo")
             case .loadedDisponibles(let newDisponibles):
                 //transformation UserDTO en UserViewModel
                 self.disponibles = newDisponibles.map{ disponible in DisponibleViewModel(disponible: disponible)}
-                debugPrint("jai charge les donnees")
+                debugPrint("dispo chargée")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

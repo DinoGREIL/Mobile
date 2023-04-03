@@ -32,17 +32,17 @@ class ListTravailViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingTravails:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading travail")
             case .loadedTravails(let newTravails):
                 //transformation UserDTO en UserViewModel
                 self.travails = newTravails.map{ travail in TravailViewModel(travail: travail)}
-                debugPrint("jai charge les donnees")
+                debugPrint("travail chargé")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

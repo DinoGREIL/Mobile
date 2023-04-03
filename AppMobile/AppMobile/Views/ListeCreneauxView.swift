@@ -4,7 +4,7 @@ import SwiftUI
 struct ListeCreneauxView: View {
     @ObservedObject var creneaux : ListCreneauViewModel
     var creneauIntent : CreneauIntent
-    @State private var selection:JourViewModel? //JourModel=JourModel(_idjour: 0, nomjour: "", debut: "", fin: "", festival: 0)
+    @State private var selection:JourViewModel=JourViewModel(jour: JourModel(_idjour: -1, nomjour: "test", debut: "kjsd", fin: "jffsdk", festival: -1))
     @ObservedObject var jours : ListJourViewModel
     var jourIntent : JourIntent
     @State private var datedebut = Date()
@@ -15,6 +15,7 @@ struct ListeCreneauxView: View {
         self.creneauIntent = CreneauIntent(model: viewModel)
         self.jours=viewmodel2
         self.jourIntent=JourIntent(model: viewmodel2)
+        
     }
     var body: some View {
         VStack {
@@ -23,7 +24,30 @@ struct ListeCreneauxView: View {
             
             // Your other content here
             // Other layers will respect the safe area edges
-            
+            VStack{
+                Text("Gestion des Créneaux")
+                Divider()
+                Spacer()
+                VStack{
+                    Text(verbatim: "Nombre de creneaux présents:  \(creneaux.count())")
+                    
+                }
+                Spacer()
+                VStack {
+                    ForEach(creneaux.creneaux, id: \.self) { creneau in
+                        HStack{
+                            Text(creneau.debut)
+                            Text(creneau.fin)
+                            
+                        }
+                        .padding(3)
+                    }
+                    Spacer()
+                }
+                .task {
+                    await creneauIntent.getCreneaux()
+                }
+            }
             Text(result)
             DatePicker(
                 "Début du créneau",
@@ -38,8 +62,7 @@ struct ListeCreneauxView: View {
             Picker("Jours", selection: $selection) {
                 ForEach(jours.jours, id: \.self) {
                     jour in
-                    
-                    Text(jour.nomjour).tag(jour.nomjour)
+                    Text(jour.nomjour).tag(jour)
                     
                     
                                 }
@@ -49,11 +72,15 @@ struct ListeCreneauxView: View {
                 debugPrint("chargement data ?")
                 await jourIntent.getJours()
                 }
+                .onChange(of: selection) { newValue in
+                    Task {}}
+            
                 Button("Créer un creneau") {
                     Task {
-                        
-                        if((selection) != nil){
-                            result="Veuillez selectionner un jour"
+                        print(datefin)
+                        print(selection._id)
+                        if((selection._id) == -1){
+                            result="Veuillez sélectionner un jour"
                         }
                         
                         else{
@@ -62,9 +89,9 @@ struct ListeCreneauxView: View {
                             
                             
                             result=""
-                            dateFormatter.dateFormat = "YY, MMM d, HH:mm:ss"
-                            await creneauIntent.createCreneau(creneau: CreneauModel(_idcreneau: 0, debut: dateFormatter.string(from:datedebut), fin: dateFormatter.string(from:datedebut), jour:Int(selection?.model.idjour ?? 1) ))
-                            result="creer"
+                            dateFormatter.dateFormat = "MM/dd/YYYY HH:mm:ss"
+                            await creneauIntent.createCreneau(creneau: CreneauModel(_idcreneau: 0, debut: dateFormatter.string(from:datedebut), fin: dateFormatter.string(from:datedebut), jour:Int(selection.model.idjour) ))
+                            result="créé"
                             
                         }
                     }}}

@@ -27,17 +27,17 @@ class ListBenevolesViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingBenevoles:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading bénévoles")
             case .loadedBenevoles(let newBenevoles):
                 //transformation UserDTO en UserViewModel
                 self.benevoles = newBenevoles.map{ benevole in BenevoleViewModel(benevole: benevole)}
-                debugPrint("jai charge les donnees")
+                debugPrint("benevoles chargés")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

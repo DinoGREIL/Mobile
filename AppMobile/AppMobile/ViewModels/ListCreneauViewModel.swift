@@ -28,17 +28,17 @@ class ListCreneauViewModel: ObservableObject {
         didSet {
             switch state {
             case .loadingCreneaux:
-                debugPrint("state loading UserVM")
+                debugPrint("state loading")
             case .loadedCreneaux(let newCreneaux):
                 //transformation UserDTO en UserViewModel
                 self.creneaux = newCreneaux.map{ creneau in CreneauViewModel(creneau: creneau)}
-                debugPrint("jai charge les donnees")
+                debugPrint("creneaux chargés")
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

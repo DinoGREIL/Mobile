@@ -91,19 +91,23 @@ struct CreneauIntent {
             // append a value to a field
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             // set (replace) a value to a field
-            let yourDate=creneau.debut
+            let yourDate1=creneau.debut
+            print(yourDate1)
+            let yourDate2=creneau.fin
             let dateFormatter = DateFormatter()
 
              //specify the date Format
-             dateFormatter.dateFormat="yyyy-MM-dd"
+             dateFormatter.dateFormat="MM/dd/YYYY HH:mm:ss"
 
              //get date from string
-             let dateString = dateFormatter.date(from: yourDate)
+             let dateString1 = dateFormatter.date(from: yourDate1)
+            let dateString2 = dateFormatter.date(from: yourDate2)
             
-
+            print("bug")
+            print(dateString1)
              //get timestamp from Date
-             let dateTimeStamp  = dateString!.timeIntervalSince1970
-            
+             let dateTimeStamp1  = dateString1!.timeIntervalSince1970
+            let dateTimeStamp2  = dateString2!.timeIntervalSince1970
             guard let encoded = await JSONHelper.encode(data: creneau) else {
                 print("pb encodage")
                 return

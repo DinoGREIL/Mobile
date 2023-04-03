@@ -33,7 +33,7 @@ struct ContentView: View {
             }
             .background(beige_fond)
             VStack{
-                NavigationLink("Gestion des festivals"){
+                NavigationLink("Gestion des Festivals"){
                     FestivalsView(viewModel: ListFestivalViewModel(listfestival: []))
                 }
                 NavigationLink("Gestion des Jours"){
