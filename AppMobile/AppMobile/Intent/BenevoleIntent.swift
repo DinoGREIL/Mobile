@@ -113,7 +113,7 @@ struct BenevoleIntent {
             request.httpMethod = "PUT"
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        *
+        
             guard let encoded = await JSONHelper.encode(data: benevole) else {
                 
                 return
