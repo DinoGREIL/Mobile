@@ -17,6 +17,8 @@ class BenevoleSettings: ObservableObject{
     @Published var nomFestival = ""
     @Published var dureeFestival = 0
     @Published var anneeFestival = ""
+    @Published var nomZone = ""
+    @Published var ZoneBenevoleNecessaire = 0
 }
 
 struct ContentView: View {
