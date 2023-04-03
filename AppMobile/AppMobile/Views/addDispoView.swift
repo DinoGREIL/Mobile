@@ -13,6 +13,7 @@ struct addDispo:View{
     var creneauIntent : CreneauIntent
     @ObservedObject var benevoles : ListBenevolesViewModel
     var benevoleIntent : BenevoleIntent
+    @State var result:String=""
     var disponibleIntent:DisponibleIntent=DisponibleIntent(model: ListDisponibleViewModel(list: []))
     @State private var selectioncreneau:CreneauViewModel=CreneauViewModel(creneau: CreneauModel(_idcreneau: -1, debut: "", fin: "", jour: -1))
     @State private var selectionbenevole:BenevoleViewModel=BenevoleViewModel(benevole: BenevoleModel(_idbenevole: -1, BenevoleNom: "", BenevolePrenom: "", BenevoleMail: "", admin: false, password: ""))
@@ -27,7 +28,7 @@ struct addDispo:View{
             
             
             
-            
+            Text(result)
             Picker("Creneaux", selection: $selectioncreneau) {
             ForEach(creneaux.creneaux, id: \.self) {
                 creneau in
@@ -65,15 +66,15 @@ struct addDispo:View{
                 Task {
                     
                     if((selectionbenevole._id) == -1 ){
-                        print("Veuillez sélectionner un benevole")
+                        result="Veuillez sélectionner un benevole"
                     }
                     else if((selectioncreneau._id) == -1 ){
-                        print("Veuillez sélectionner un creneau")
+                        result="Veuillez sélectionner un creneau"
                     }
                     else{
-                        
+                        result="Chargement"
                         await disponibleIntent.createDisponible(disponible: DisponibleModel(creneau: selectioncreneau._id, benevole: selectionbenevole._id))
-                        print("crée")
+                        result="Disponibilité crée"
                         
                     }
                 }}

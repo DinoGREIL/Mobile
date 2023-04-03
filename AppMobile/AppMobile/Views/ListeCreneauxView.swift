@@ -88,7 +88,7 @@ struct ListeCreneauxView: View {
                             
                             
                             
-                            result=""
+                            result="Chargement"
                             dateFormatter.dateFormat = "MM/dd/YYYY HH:mm:ss"
                             await creneauIntent.createCreneau(creneau: CreneauModel(_idcreneau: 0, debut: dateFormatter.string(from:datedebut), fin: dateFormatter.string(from:datedebut), jour:Int(selection.model.idjour) ))
                             result="créé"

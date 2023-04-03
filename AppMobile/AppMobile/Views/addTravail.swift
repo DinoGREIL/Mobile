@@ -13,7 +13,7 @@ struct addTravail:View{
     var zoneIntent : ZoneIntent
     @ObservedObject var disponibles : ListDisponibleViewModel
     var disponibleIntent: DisponibleIntent
-    
+    @State var result:String=""
     var travailIntent:TravailIntent=TravailIntent(model: ListTravailViewModel(list: []))
     @State private var selectiondisponible:DisponibleViewModel=DisponibleViewModel(disponible: DisponibleModel(creneau: -1, benevole: -1))
     @State private var selectionzone:ZoneViewModel=ZoneViewModel(zone: ZoneModel(_idzone: -1, nomzone: "", nbbenevole: 0))
@@ -27,7 +27,7 @@ struct addTravail:View{
         VStack{
             
             
-            
+            Text(result)
             
             Picker("Disponibilité", selection: $selectiondisponible) {
             ForEach(disponibles.disponibles, id: \.self) {
@@ -66,15 +66,15 @@ struct addTravail:View{
                 Task {
                     
                     if((selectionzone._id) == -1 ){
-                        print("Veuillez sélectionner une zone")
+                        result="Veuillez sélectionner une zone"
                     }
                     else if((selectiondisponible.benevole) == -1 ){
-                        print("Veuillez sélectionner une disponibilité")
+                        result="Veuillez sélectionner une disponibilité"
                     }
                     else{
-                        
+                        result="Chargement"
                         await travailIntent.createTravail(travail:TravailModel(zone: selectionzone._id, creneau: selectiondisponible.creneau, benevole: selectiondisponible.benevole))
-                        print("crée")
+                        result="Bénévole n°\(selectiondisponible.benevole) assigné à la zone \(selectionzone.nomzone)"
                         
                     }
                 }}

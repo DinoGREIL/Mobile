@@ -87,7 +87,7 @@ struct JourIntent {
     func createJour(jour: JourModel) async {
         
         do {
-            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/jour") else {
+            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/jours") else {
                 print("bad URL")
                 return
             }
@@ -110,7 +110,7 @@ struct JourIntent {
     func updateJour(id:Int,jour: JourModel) async {
         
         do {
-            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/jour/\(id)") else {
+            guard let url=URL(string: "https://apimobiledino.cluster-ig4.igpolytech.fr/jours/\(id)") else {
                 print("bad URL")
                 return
             }
