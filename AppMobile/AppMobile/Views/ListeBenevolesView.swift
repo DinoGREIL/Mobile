@@ -120,7 +120,7 @@ struct ListeBenevolesView: View {
                 }
                 
                 NavigationLink("Ajouter des disponibilités"){
-                    addDispo(viewModel: ListBenevolesViewModel(benevoles: []), viewmodel2: ListCreneauViewModel(listcreneau: []))
+                    addDispoView(viewModel: ListBenevolesViewModel(benevoles: []), viewmodel2: ListCreneauViewModel(listcreneau: []))
                 }
                 
             }
