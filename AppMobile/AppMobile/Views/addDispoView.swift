@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-struct addDispo:View{
+struct addDispoView:View{
     
     @ObservedObject var creneaux : ListCreneauViewModel
     var creneauIntent : CreneauIntent
